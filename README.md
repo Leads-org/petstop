@@ -99,10 +99,10 @@ API URL:
 
 | HTTP   | Endpoint                | Description              |
 | ------ | ----------------------- | ------------------------ |
-| GET    | `/product_category`     | Get all product_category |
-| POST   | `/product_category`     | Create product_category  |
-| PATCH  | `/product_category/:id` | Edit product_category    |
-| DELETE | `/product_category/:id` | Delete product_category  |
+| GET    | `/product-category`     | Get all product category |
+| POST   | `/product-category`     | Create product category  |
+| PATCH  | `/product-category/:id` | Edit product category    |
+| DELETE | `/product-category/:id` | Delete product category  |
 
 ```json
 [
@@ -110,6 +110,71 @@ API URL:
     "_id": "",
     "name": "",
     "descriptions": ""
+  }
+]
+```
+
+### Customers
+
+| HTTP   | Endpoint         | Description       |
+| ------ | ---------------- | ----------------- |
+| GET    | `/customers`     | Get all customers |
+| POST   | `/customers`     | Create customers  |
+| PATCH  | `/customers/:id` | Edit customers    |
+| DELETE | `/customers/:id` | Delete customers  |
+
+```json
+[
+  {
+    "_id": "",
+    "email": "",
+    "fullname": "",
+    "billing_address": "",
+    "default_shipping_address": "",
+    "phone": ""
+  }
+]
+```
+
+### Orders
+
+| HTTP   | Endpoint      | Description    |
+| ------ | ------------- | -------------- |
+| GET    | `/orders`     | Get all orders |
+| POST   | `/orders`     | Create orders  |
+| PATCH  | `/orders/:id` | Edit orders    |
+| DELETE | `/orders/:id` | Delete orders  |
+
+```json
+[
+  {
+    "_id": "",
+    "customer_id": "",
+    "amount": "",
+    "shipping_address": "",
+    "order_date": "",
+    "order_status": ""
+  }
+]
+```
+
+### Order details
+
+| HTTP   | Endpoint             | Description           |
+| ------ | -------------------- | --------------------- |
+| GET    | `/order-details`     | Get all order-details |
+| POST   | `/order-details`     | Create order-details  |
+| PATCH  | `/order-details/:id` | Edit order-details    |
+| DELETE | `/order-details/:id` | Delete order-details  |
+
+```json
+[
+  {
+    "_id": "",
+    "order_id": "",
+    "product_id": "",
+    "price": "",
+    "quantity": ""
   }
 ]
 ```
