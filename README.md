@@ -21,17 +21,18 @@ Project description with clear goal.
 
 ### Design
 
-- Figma Mockup: https://figma.com
-- Figma Prototype: https://figma.com
-- Whimsical Flowchart: https://whimsical.com
+- Figma Mockup: https://www.figma.com/file/5Fg06BGKaD9idXYMK62xYp/Petshub?node-id=0%3A1
+- Figma Prototype: https://www.figma.com/file/5Fg06BGKaD9idXYMK62xYp/Petshub?node-id=0%3A1
+
 
 ## Main Features
 
-- First feature
-- Second feature
-- Third feature
-- Fourth feature
-- Fifth feature
+- List Product
+- Detail Product
+- Orders
+- Shopping cart
+- profile customer
+
 
 ## Team Members
 
@@ -53,24 +54,17 @@ Project description with clear goal.
   - TypeScript
 - Node.js & npm
 - React
-  - Vite v3
-    - React Router v6
   - Next.js v12
     - next/router
     - next/image
-  - Remix v1.7.2
-    - Remix Router
+    - next/head    
 - Data Fetching
-  - REST API: `axios` / `swr`
-  - GraphQL: `urql` / `graphql-request`
+  - REST API: `axios`
 - UI Components
-  - Ariakit
-  - Headless UI
   - Radix UI
 - Misc
   - Prettier
   - ESLint
-  - `concurrently`
 
 ## Development
 
@@ -83,7 +77,7 @@ npm install
 Run server in development mode:
 
 ```sh
-npm run dev
+npm run dev / yarn run dev
 ```
 
 Build for production:
@@ -100,13 +94,12 @@ npm start
 
 ## Deployment
 
-Details on deployment using Vercel or Netlify here.
+Details on deployment using Netlify
 
 ## Data Model
 
 ### Resources
 
-<<<<<<< HEAD
 
 ### Tags
 
@@ -117,7 +110,5 @@ Details on deployment using Vercel or Netlify here.
 Base URL: `https://api.example.com`
 
 ### Resources
-
-<<<<<<< HEAD
 
 ### Auth
