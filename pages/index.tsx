@@ -1,5 +1,6 @@
 import type { NextPage } from "next";
 import Head from "next/head";
+import Category from "../components/Category";
 import Header from "../components/Header";
 import Hero from "../components/Hero";
 
@@ -16,8 +17,10 @@ const Home: NextPage = () => {
 
       {/* Hero */}
       <Hero />
+      
       {/* nyan nyan product */}
-
+      <Category />
+      
       {/* best sellers */}
 
       {/* satisfaction guarantee */}
