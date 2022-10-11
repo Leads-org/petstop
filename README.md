@@ -106,6 +106,8 @@ Details on deployment using Vercel or Netlify here.
 
 ### Resources
 
+<<<<<<< HEAD
+
 ### Tags
 
 ### User
@@ -115,5 +117,7 @@ Details on deployment using Vercel or Netlify here.
 Base URL: `https://api.example.com`
 
 ### Resources
+
+<<<<<<< HEAD
 
 ### Auth
