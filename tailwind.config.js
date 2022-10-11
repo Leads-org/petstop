@@ -5,7 +5,18 @@ module.exports = {
     "./components/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      backgroundImage: {
+        "hero-pattern": "url('/hero-object.png')",
+      },
+      backgroundSize: {
+        auto: "auto",
+        cover: "cover",
+        contain: "contain",
+        "20%": "20%",
+        16: "4rem",
+      },
+    },
   },
   plugins: [],
 };
