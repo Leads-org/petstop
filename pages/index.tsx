@@ -11,6 +11,7 @@ const Home: NextPage = () => {
       </Head>
 
       {/* Header */}
+      
       <Header />
 
       {/* Hero */}
