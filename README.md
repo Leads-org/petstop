@@ -24,7 +24,6 @@ Project description with clear goal.
 - Figma Mockup: https://www.figma.com/file/5Fg06BGKaD9idXYMK62xYp/Petshub?node-id=0%3A1
 - Figma Prototype: https://www.figma.com/file/5Fg06BGKaD9idXYMK62xYp/Petshub?node-id=0%3A1
 
-
 ## Main Features
 
 - List Product
@@ -32,7 +31,6 @@ Project description with clear goal.
 - Orders
 - Shopping cart
 - profile customer
-
 
 ## Team Members
 
@@ -57,7 +55,7 @@ Project description with clear goal.
   - Next.js v12
     - next/router
     - next/image
-    - next/head    
+    - next/head
 - Data Fetching
   - REST API: `axios`
 - UI Components
@@ -65,6 +63,56 @@ Project description with clear goal.
 - Misc
   - Prettier
   - ESLint
+
+## API Specification
+
+API URL:
+
+### Products
+
+| HTTP   | Endpoint        | Description      |
+| ------ | --------------- | ---------------- |
+| GET    | `/products`     | Get all products |
+| POST   | `/products`     | Create products  |
+| PATCH  | `/products/:id` | Edit products    |
+| DELETE | `/products/:id` | Delete products  |
+
+```json
+[
+  {
+    "_id": "",
+    "name": "",
+    "price": "",
+    "descriptions": "",
+    "category_id": "",
+    "image": [
+      {
+        "fileName": "",
+        "url": ""
+      }
+    ]
+  }
+]
+```
+
+### Products Category
+
+| HTTP   | Endpoint                | Description              |
+| ------ | ----------------------- | ------------------------ |
+| GET    | `/product_category`     | Get all product_category |
+| POST   | `/product_category`     | Create product_category  |
+| PATCH  | `/product_category/:id` | Edit product_category    |
+| DELETE | `/product_category/:id` | Delete product_category  |
+
+```json
+[
+  {
+    "_id": "",
+    "name": "",
+    "descriptions": ""
+  }
+]
+```
 
 ## Development
 
@@ -99,7 +147,6 @@ Details on deployment using Netlify
 ## Data Model
 
 ### Resources
-
 
 ### Tags
 
