@@ -204,23 +204,3 @@ Start in production mode:
 ```sh
 npm start
 ```
-
-## Deployment
-
-Details on deployment using Netlify
-
-## Data Model
-
-### Resources
-
-### Tags
-
-### User
-
-## REST API Documentation
-
-Base URL: `https://api.example.com`
-
-### Resources
-
-### Auth
