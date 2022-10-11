@@ -1,34 +1,119 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# A simple ecommerce apps about pets
 
-## Getting Started
+Project description with clear goal.
 
-First, run the development server:
+![Screenshot 1]()
 
-```bash
-npm run dev
-# or
-yarn dev
+![Screenshot 2]()
+
+## Links
+
+### Production
+
+- https://project.vercel.app
+- https://project.netlify.app
+- https://project.example.com
+
+### Local
+
+- http://localhost:3000
+- http://localhost:5173
+
+### Design
+
+- Figma Mockup: https://figma.com
+- Figma Prototype: https://figma.com
+- Whimsical Flowchart: https://whimsical.com
+
+## Main Features
+
+- First feature
+- Second feature
+- Third feature
+- Fourth feature
+- Fifth feature
+
+## Team Members
+
+| Name                         | Role              | GitHub URL                                                     |
+| ---------------------------- | ----------------- | -------------------------------------------------------------- |
+| Muhammad Zulkarnaen Indranto | Lead, Frontend    | [@zul1996](https://github.com/zul1996)                         |
+| Makmur                       | Design, Docs      | [@makmuremha](https://github.com/makmuremha)                   |
+| Muhammad Lutfi               | Frontend, Design  | [@vektormuhammadlutfi](https://github.com/vektormuhammadlutfi) |
+| Ade Ahmad Faisal             | Frontend, Backend | [@adeahmadfaisal](https://github.com/adeahmadfaisal)           |
+
+## Tech Stack
+
+### Commerce
+
+- HTML
+- CSS
+  - Tailwind CSS
+- JavaScript
+  - TypeScript
+- Node.js & npm
+- React
+  - Vite v3
+    - React Router v6
+  - Next.js v12
+    - next/router
+    - next/image
+  - Remix v1.7.2
+    - Remix Router
+- Data Fetching
+  - REST API: `axios` / `swr`
+  - GraphQL: `urql` / `graphql-request`
+- UI Components
+  - Ariakit
+  - Headless UI
+  - Radix UI
+- Misc
+  - Prettier
+  - ESLint
+  - `concurrently`
+
+## Development
+
+Install dependencies:
+
+```sh
+npm install
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Run server in development mode:
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+```sh
+npm run dev
+```
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+Build for production:
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+```sh
+npm run build
+```
 
-## Learn More
+Start in production mode:
 
-To learn more about Next.js, take a look at the following resources:
+```sh
+npm start
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Deployment
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+Details on deployment using Vercel or Netlify here.
 
-## Deploy on Vercel
+## Data Model
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### Resources
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+### Tags
+
+### User
+
+## REST API Documentation
+
+Base URL: `https://api.example.com`
+
+### Resources
+
+### Auth
