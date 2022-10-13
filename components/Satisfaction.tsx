@@ -12,12 +12,12 @@ function Satisfaction({}: Props) {
         <div className="p-10 text-left mt-40">
           <h1 className="text-4xl font-bold">Satisfaction Guarantee</h1>
           <p className="text-lg mt-5">
-            We're lucky to have so many happy customers. We're confident you'll
+            We`re lucky to have so many happy customers. We`re confident you`ll
             be one too.
           </p>
           <p className="text-lg mt-5">
-            If you're not 100% satisfied with your order, reach out to
-            hello@nomz.com and we'll send you a full refund, no questions asked.
+            If you`re not 100% satisfied with your order, reach out to
+            hello@nomz.com and we`ll send you a full refund, no questions asked.
           </p>
         </div>
       </div>

@@ -19,7 +19,7 @@ function Header({}: Props) {
               <ul className="hidden w-8/12 md:flex items-center justify-center space-x-8">
                 <li>
                   <a
-                    href="javascript:void(0)"
+                    href="#"
                     className="dark:text-white text-base text-gray-800 focus:outline-none focus:ring-2 focus:ring-gray-800 hover:underline"
                   >
                     Shop
@@ -27,7 +27,7 @@ function Header({}: Props) {
                 </li>
                 <li>
                   <a
-                    href="javascript:void(0)"
+                    href="#"
                     className="dark:text-white text-base text-gray-800 focus:outline-none focus:ring-2 focus:ring-gray-800 hover:underline"
                   >
                     About Us
@@ -35,7 +35,7 @@ function Header({}: Props) {
                 </li>
                 <li>
                   <a
-                    href="javascript:void(0)"
+                    href="#"
                     className="dark:text-white text-base text-gray-800 focus:outline-none focus:ring-2 focus:ring-gray-800 hover:underline"
                   >
                     Our Story
@@ -43,7 +43,7 @@ function Header({}: Props) {
                 </li>
                 <li>
                   <a
-                    href="javascript:void(0)"
+                    href="#"
                     className="dark:text-white text-base text-gray-800 focus:outline-none focus:ring-2 focus:ring-gray-800 hover:underline"
                   >
                     Wholesale
