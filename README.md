@@ -8,11 +8,11 @@ Project description with clear goal.
 
 ## Links
 
+- https://nekoomushi.netlify.app/
+
 ### Production
 
 - https://project.vercel.app
-- https://project.netlify.app
-- https://project.example.com
 
 ### Local
 
