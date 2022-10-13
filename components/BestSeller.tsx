@@ -32,7 +32,7 @@ const productBestSeller = [
 
 function BestSeller({}: Props) {
   return (
-    <div className="container mt-10 mb-20">
+    <div className="mt-10 mb-20">
       <h1 className="text-4xl text-center">Best Sellers</h1>
       <div className="grid grid-cols-4 gap-4 mt-10">
         {productBestSeller.map((data) => {

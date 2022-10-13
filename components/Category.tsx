@@ -23,7 +23,7 @@ const images = [
 
 function Category({}: Props) {
   return (
-    <div className="container text-center mt-10">
+    <div className="text-center mt-10">
       <h1 className="text-4xl mb-4">nyan nyan products</h1>
       <h1 className="text-sm">
         Our products are the perfect way to show your pets how much you love
