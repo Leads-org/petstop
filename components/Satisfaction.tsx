@@ -4,7 +4,7 @@ type Props = {};
 
 function Satisfaction({}: Props) {
   return (
-    <div className="bg-[#EBC15D]">
+    <div className="bg-[#EBC15D] pt-20 pb-20">
       <div className="grid grid-cols-2 m-10 align-middle">
         <div className="ml-10 text-center">
           <Image src="/satisfaction-hero.png" width={510} height={474} />
