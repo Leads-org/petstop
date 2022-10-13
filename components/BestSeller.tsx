@@ -34,12 +34,12 @@ function BestSeller({}: Props) {
   return (
     <div className="mt-10 mb-20">
       <h1 className="text-4xl text-center">Best Sellers</h1>
-      <div className="grid grid-cols-4 gap-4 mt-10">
+      <div className="grid grid-cols-1 gap-5 mt-10 md:grid-cols-2 lg:grid-cols-4 ">
         {productBestSeller.map((data) => {
           return (
             <div
               key={data.id}
-              className="overflow-hidden shadow-lg rounded-lg h-90 w-60 md:w-80 cursor-pointer m-auto"
+              className="overflow-hidden shadow-lg rounded-lg h-90 w-60 md:w-80 cursor-pointer m-auto  "
             >
               <a href="#" className="w-full block h-full">
                 <Image
