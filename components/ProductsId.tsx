@@ -1,5 +1,6 @@
 import useSWR from "swr";
 import { fetcher } from "../libs";
+import Image from "next/image";
 // import { dataProducts } from "../types/dataProducts";
 
 export const ProductsId = () => {
@@ -18,9 +19,12 @@ export const ProductsId = () => {
       <h1>Products Route</h1>
       {products.map((products: any) => {
         return (
-          <div key="{products.id}">
-            <h1 className="font-bold">{`/products/${products.id}`}</h1>
-            <h2>{products.title}</h2>
+          <div key={products._id}>
+            <h1 className="font-bold">{`/products/${products._id}`}</h1>
+            <h2>{products.name}</h2>
+            <h2>{products.descriptions}</h2>
+            <h2>{products.price}</h2>
+            <Image src={products.image} />
           </div>
         );
       })}
