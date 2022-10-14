@@ -6,6 +6,9 @@ import Header from "../components/Header";
 import Hero from "../components/Hero";
 import Satisfaction from "../components/Satisfaction";
 import Newslatter from "../components/Newslatter";
+import Footer from "../components/Footer";
+
+import { ProductsId } from "../components/ProductsId";
 
 const Home: NextPage = () => {
   return (
@@ -15,25 +18,27 @@ const Home: NextPage = () => {
       </Head>
 
       {/* Header */}
-
       <Header />
+      <ProductsId />
 
       {/* Hero */}
-      <Hero />
+      {/* <Hero /> */}
 
       {/* nyan nyan product */}
-      <Category />
+      {/* <Category /> */}
 
       {/* best sellers */}
-      <BestSeller />
+      {/* <BestSeller /> */}
 
       {/* satisfaction guarantee */}
-      <Satisfaction />
+      {/* <Satisfaction /> */}
 
       {/* Sign up + save newslatter */}
-      <Newslatter />
+      {/* <Newslatter /> */}
 
       {/* footer */}
+
+      {/* <Footer /> */}
     </div>
   );
 };

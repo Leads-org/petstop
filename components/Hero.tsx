@@ -4,8 +4,8 @@ type Props = {};
 
 function Hero({}: Props) {
   return (
-    <div className="container relative ">
-      <div className="grid grid-cols-1 m-10  md:grid-cols-2  ">
+    <div className="container mx-auto flex  items-center ">
+      <div className="grid grid-cols-1 m-10 md:grid-cols-2  ">
         <div className="p-10 text-left">
           <h1 className="text-4xl font-bold">BEST PRODUCT</h1>
           <h1 className="text-4xl font-bold">FOR YOUR PETS</h1>
