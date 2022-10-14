@@ -24,7 +24,7 @@ export const ProductsId = () => {
             <h2>{products.name}</h2>
             <h2>{products.descriptions}</h2>
             <h2>{products.price}</h2>
-            <Image src={products.image} />
+            <Image src={products.image[0].url} width={100} height={100} />
           </div>
         );
       })}
