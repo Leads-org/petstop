@@ -40,13 +40,6 @@ function Header() {
                     </a>
                   </Link>
                 </li>
-                <li>
-                  <Link href="#">
-                    <a className="dark:text-white text-base text-gray-800 focus:outline-none focus:ring-2 focus:ring-gray-800 hover:underline">
-                      Wholesale
-                    </a>
-                  </Link>
-                </li>
               </ul>
               <div className="md:w-2/12 justify-end flex items-center space-x-4 xl:space-x-8">
                 <div className="hidden lg:flex items-center">
