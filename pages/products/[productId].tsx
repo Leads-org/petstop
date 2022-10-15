@@ -2,6 +2,7 @@ import { useRouter } from "next/router";
 import Head from "next/head";
 import Image from "next/image";
 import useSWR from "swr";
+
 import Header from "../../components/Header";
 import { fetcher } from "../../libs";
 import Ratings from "../../components/Ratings";
@@ -43,7 +44,7 @@ const ProductsDetail = () => {
             />
             <a href="#" className="w-full block h-full">
               <div className="bg-white dark:bg-gray-800 w-full p-4">
-                <h1 className="text-gray-800 dark:text-white text-xl font-medium text-3xl mb-5">
+                <h1 className="text-gray-800 dark:text-white font-medium text-3xl mb-5">
                   {product.name}
                 </h1>
                 <Ratings />
