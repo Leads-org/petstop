@@ -9,14 +9,14 @@ import FormatCurrency from "./FormatCurrency";
 
 export const Products = () => {
   const [count, setCount] = useState(4);
-  
+
   const { data: products, error: productsError } = useSWR(
-    `https://api.kontenbase.com/query/api/v1/bee912c9-4dfd-4be3-97cc-5b3a353e0ac6/products?$limit=${count}`,
+    `${process.env.NEXT_PUBLIC_BACKEND_URL}/products?$limit=${count}`,
     fetcher
   );
 
   const { data: productsCount, error: productsCountError } = useSWR(
-    `https://api.kontenbase.com/query/api/v1/bee912c9-4dfd-4be3-97cc-5b3a353e0ac6/products/count`,
+    `${process.env.NEXT_PUBLIC_BACKEND_URL}/products/count`,
     fetcher
   );
 
