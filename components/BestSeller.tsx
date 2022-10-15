@@ -7,7 +7,7 @@ import FormatCurrency from "./FormatCurrency";
 
 export const BestSeller = () => {
   const { data: products, error } = useSWR(
-    `https://api.kontenbase.com/query/api/v1/bee912c9-4dfd-4be3-97cc-5b3a353e0ac6/products?$limit=4`,
+    `${process.env.NEXT_PUBLIC_BACKEND_URL}/products?$limit=4`,
     fetcher
   );
   console.log(products);
