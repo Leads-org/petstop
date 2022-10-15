@@ -25,7 +25,7 @@ const ProductsDetail = () => {
 
       <div className="mt-10 mb-20">
         <div
-          key={products.id}
+          key={products._id}
           className="overflow-hidden shadow-lg rounded-lg h-90 w-full cursor-pointer m-auto p-10"
         >
           <a href="#" className="w-full block h-full">
