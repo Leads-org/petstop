@@ -2,7 +2,7 @@ import type { NextPage } from "next";
 import Head from "next/head";
 import Header from "../../components/Header";
 import NavCategory from "../../components/NavCategory";
-import ProductsId from "../../components/ProductsId";
+import ProductList from "../../components/Products";
 
 const Products: NextPage = () => {
   return (
@@ -13,7 +13,7 @@ const Products: NextPage = () => {
 
       <Header />
       <NavCategory />
-      <ProductsId />
+      <ProductList />
 
       {/* footer */}
     </div>
