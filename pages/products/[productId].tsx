@@ -30,61 +30,65 @@ const ProductsDetail = () => {
       <div className="mt-10 mb-20">
         <div
           key={product._id}
-          className="overflow-hidden shadow-lg rounded-lg h-90 w-full cursor-pointer m-auto p-10"
+          className="overflow-hidden rounded-lg h-90 w-full cursor-pointer m-auto px-24"
         >
-          <a href="#" className="w-full block h-full">
+          <div className="grid grid-cols-2 gap-5 mt-10">
             <Image
               alt="blog photo"
-              src={product.image[0]?.url}
+              src={product?.image[0]?.url}
               width={500}
               height={600}
               className="max-h-40 w-full object-cover"
               priority
             />
-            <div className="bg-white dark:bg-gray-800 w-full p-4">
-              <p className="text-gray-800 dark:text-white text-xl font-medium mb-2">
-                {product.name}
-              </p>
-              <p className="text-gray-800 dark:text-white text-xl font-medium mb-2">
-                {product.description}
-              </p>
-              <p className="text-gray-800 dark:text-gray-500 font-light text-md">
-                {product.price}
-              </p>
-              <div className="flex item-center mt-2">
-                <svg
-                  className="w-5 h-5 fill-current text-amber-400"
-                  viewBox="0 0 24 24"
-                >
-                  <path d="M12 17.27L18.18 21L16.54 13.97L22 9.24L14.81 8.63L12 2L9.19 8.63L2 9.24L7.46 13.97L5.82 21L12 17.27Z"></path>
-                </svg>
-                <svg
-                  className="w-5 h-5 fill-current text-amber-400"
-                  viewBox="0 0 24 24"
-                >
-                  <path d="M12 17.27L18.18 21L16.54 13.97L22 9.24L14.81 8.63L12 2L9.19 8.63L2 9.24L7.46 13.97L5.82 21L12 17.27Z"></path>
-                </svg>
-                <svg
-                  className="w-5 h-5 fill-current text-amber-400"
-                  viewBox="0 0 24 24"
-                >
-                  <path d="M12 17.27L18.18 21L16.54 13.97L22 9.24L14.81 8.63L12 2L9.19 8.63L2 9.24L7.46 13.97L5.82 21L12 17.27Z"></path>
-                </svg>
-                <svg
-                  className="w-5 h-5 fill-current text-gray-500"
-                  viewBox="0 0 24 24"
-                >
-                  <path d="M12 17.27L18.18 21L16.54 13.97L22 9.24L14.81 8.63L12 2L9.19 8.63L2 9.24L7.46 13.97L5.82 21L12 17.27Z"></path>
-                </svg>
-                <svg
-                  className="w-5 h-5 fill-current text-gray-500"
-                  viewBox="0 0 24 24"
-                >
-                  <path d="M12 17.27L18.18 21L16.54 13.97L22 9.24L14.81 8.63L12 2L9.19 8.63L2 9.24L7.46 13.97L5.82 21L12 17.27Z"></path>
-                </svg>
+            <a href="#" className="w-full block h-full">
+              <div className="bg-white dark:bg-gray-800 w-full p-4">
+                <h1 className="text-gray-800 dark:text-white text-xl font-medium text-3xl mb-5">
+                  {product.name}
+                </h1>
+                <div className="flex item-center mt-2 mb-5">
+                  <svg
+                    className="w-5 h-5 fill-current text-amber-400"
+                    viewBox="0 0 24 24"
+                  >
+                    <path d="M12 17.27L18.18 21L16.54 13.97L22 9.24L14.81 8.63L12 2L9.19 8.63L2 9.24L7.46 13.97L5.82 21L12 17.27Z"></path>
+                  </svg>
+                  <svg
+                    className="w-5 h-5 fill-current text-amber-400"
+                    viewBox="0 0 24 24"
+                  >
+                    <path d="M12 17.27L18.18 21L16.54 13.97L22 9.24L14.81 8.63L12 2L9.19 8.63L2 9.24L7.46 13.97L5.82 21L12 17.27Z"></path>
+                  </svg>
+                  <svg
+                    className="w-5 h-5 fill-current text-amber-400"
+                    viewBox="0 0 24 24"
+                  >
+                    <path d="M12 17.27L18.18 21L16.54 13.97L22 9.24L14.81 8.63L12 2L9.19 8.63L2 9.24L7.46 13.97L5.82 21L12 17.27Z"></path>
+                  </svg>
+                  <svg
+                    className="w-5 h-5 fill-current text-gray-500"
+                    viewBox="0 0 24 24"
+                  >
+                    <path d="M12 17.27L18.18 21L16.54 13.97L22 9.24L14.81 8.63L12 2L9.19 8.63L2 9.24L7.46 13.97L5.82 21L12 17.27Z"></path>
+                  </svg>
+                  <svg
+                    className="w-5 h-5 fill-current text-gray-500"
+                    viewBox="0 0 24 24"
+                  >
+                    <path d="M12 17.27L18.18 21L16.54 13.97L22 9.24L14.81 8.63L12 2L9.19 8.63L2 9.24L7.46 13.97L5.82 21L12 17.27Z"></path>
+                  </svg>
+                </div>
+                <p className="text-gray-800 dark:text-white font-medium mb-2">
+                  {product.description}
+                </p>
+                <div className="flex item-center justify-between mt-10">
+                  <button className="bg-transparent hover:bg-orange-600 text-sky-500 font-semibold shadow-md hover:text-white py-2 px-4 border border-stone-700 hover:border-transparent rounded">
+                    Add to Card - {product.price}
+                  </button>
+                </div>
               </div>
-            </div>
-          </a>
+            </a>
+          </div>
         </div>
       </div>
     </div>
