@@ -14,7 +14,7 @@ function Header({}: Props) {
                 className="md:w-2/12 cursor-pointer text-gray-800 font-sans dark:text-white"
                 aria-label="the Crib."
               >
-                PetShop
+                PetStop
               </h1>
               <ul className="hidden w-8/12 md:flex items-center justify-center space-x-8">
                 <li>

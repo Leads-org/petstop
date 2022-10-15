@@ -9,7 +9,7 @@ export const ProductsId = () => {
     `https://api.kontenbase.com/query/api/v1/bee912c9-4dfd-4be3-97cc-5b3a353e0ac6/products?$limit=${count}`,
     fetcher
   );
-  console.log(products);
+  // console.log(products);
 
   if (error) return <div>failed to load</div>;
   if (!products) return <div>loading...</div>;
