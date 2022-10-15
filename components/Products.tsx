@@ -8,10 +8,10 @@ import Ratings from "./Ratings";
 import FormatCurrency from "./FormatCurrency";
 
 export const Products = () => {
-  const [count, setCount] = useState(4);
+  const [limit, setLimit] = useState(4);
 
   const { data: products, error: productsError } = useSWR(
-    `/api/products?count=${count}`,
+    `/api/products?limit=${limit}`,
     fetcher
   );
 
@@ -25,10 +25,10 @@ export const Products = () => {
 
   let buttonLoadMore;
 
-  if (count < productsCount?.count) {
+  if (limit < productsCount?.count) {
     buttonLoadMore = (
       <button
-        onClick={() => setCount(count + 4)}
+        onClick={() => setLimit(limit + 4)}
         className="bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded"
       >
         Load More
@@ -41,7 +41,6 @@ export const Products = () => {
   if (productsError) return <div>failed to load</div>;
   if (!products) return <div>loading...</div>;
 
-  // render data
   return (
     <div className="mt-10 mb-20">
       <div className="grid grid-cols-1 gap-5 mt-10 md:grid-cols-2 lg:grid-cols-4 ">

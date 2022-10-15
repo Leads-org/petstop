@@ -8,11 +8,11 @@ export default async function handler(
   res: NextApiResponse<Product>
 ) {
   const {
-    query: { count },
+    query: { limit },
   } = req;
 
   const response = await fetch(
-    `${process.env.BACKEND_URL}/products?$limit=${count}`
+    `${process.env.BACKEND_URL}/products?$limit=${limit}`
   );
   const products = await response.json();
 
