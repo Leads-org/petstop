@@ -1,23 +1,22 @@
 import { useRouter } from "next/router";
 import Head from "next/head";
-import Header from "../../components/Header";
-import useSWR from "swr";
-import { fetcher } from "../../libs";
 import Image from "next/image";
+import useSWR from "swr";
+
+import Header from "../../components/Header";
+import { fetcher } from "../../libs";
 
 const ProductsDetail = () => {
   const router = useRouter();
   const { id } = router.query;
 
-  const { data: products, error } = useSWR(
+  const { data: product, error } = useSWR(
     `https://api.kontenbase.com/query/api/v1/bee912c9-4dfd-4be3-97cc-5b3a353e0ac6/products/${id}`,
     fetcher
   );
 
-  console.log(products);
-
-  if (error) return <div>failed to load</div>;
-  if (!products) return <div>loading...</div>;
+  if (error) return <div>Failed to load product by id: {id}</div>;
+  if (!product) return <div>Loading product details...</div>;
 
   return (
     <div>
@@ -30,13 +29,13 @@ const ProductsDetail = () => {
 
       <div className="mt-10 mb-20">
         <div
-          key={products._id}
+          key={product._id}
           className="overflow-hidden shadow-lg rounded-lg h-90 w-full cursor-pointer m-auto p-10"
         >
           <a href="#" className="w-full block h-full">
             <Image
               alt="blog photo"
-              src={products.image[0]?.url}
+              src={product.image[0]?.url}
               width={500}
               height={600}
               className="max-h-40 w-full object-cover"
@@ -44,13 +43,13 @@ const ProductsDetail = () => {
             />
             <div className="bg-white dark:bg-gray-800 w-full p-4">
               <p className="text-gray-800 dark:text-white text-xl font-medium mb-2">
-                {products.name}
+                {product.name}
               </p>
               <p className="text-gray-800 dark:text-white text-xl font-medium mb-2">
-                {products.descriptions}
+                {product.description}
               </p>
               <p className="text-gray-800 dark:text-gray-500 font-light text-md">
-                {products.price}
+                {product.price}
               </p>
               <div className="flex item-center mt-2">
                 <svg
