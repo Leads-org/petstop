@@ -19,18 +19,18 @@ function Header({}: Props) {
               <ul className="hidden w-8/12 md:flex items-center justify-center space-x-8">
                 <li>
                   <a
-                    href="#"
+                    href="./"
                     className="dark:text-white text-base text-gray-800 focus:outline-none focus:ring-2 focus:ring-gray-800 hover:underline"
                   >
-                    Shop
+                    Home
                   </a>
                 </li>
                 <li>
                   <a
-                    href="#"
+                    href="./products"
                     className="dark:text-white text-base text-gray-800 focus:outline-none focus:ring-2 focus:ring-gray-800 hover:underline"
                   >
-                    About Us
+                    Products
                   </a>
                 </li>
                 <li>

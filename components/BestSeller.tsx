@@ -1,57 +1,39 @@
-import React from "react";
+import useSWR from "swr";
+import { fetcher } from "../libs";
 import Image from "next/image";
 
-type Props = {};
+export const BestSeller = () => {
+  const { data: products, error } = useSWR(
+    `https://api.kontenbase.com/query/api/v1/bee912c9-4dfd-4be3-97cc-5b3a353e0ac6/products?$limit=4`,
+    fetcher
+  );
+  console.log(products);
 
-const productBestSeller = [
-  {
-    id: 1,
-    image: "/food.png",
-    description: "Chicken Treats",
-    price: "$ 8.00",
-  },
-  {
-    id: 2,
-    image: "/toy.png",
-    description: "Toy",
-    price: "$ 8.00",
-  },
-  {
-    id: 3,
-    image: "/chewiy.png",
-    description: "Chewiy",
-    price: "$ 8.00",
-  },
-  {
-    id: 4,
-    image: "/vitamin.png",
-    description: "Vitamin",
-    price: "$ 8.00",
-  },
-];
+  if (error) return <div>failed to load</div>;
+  if (!products) return <div>loading...</div>;
 
-function BestSeller({}: Props) {
+  // render data
   return (
     <div className="mt-10 mb-20">
       <h1 className="text-4xl text-center">Best Sellers</h1>
       <div className="grid grid-cols-1 gap-5 mt-10 md:grid-cols-2 lg:grid-cols-4 ">
-        {productBestSeller.map((data) => {
+        {products.map((data: any) => {
           return (
             <div
-              key={data.id}
+              key={data._id}
               className="overflow-hidden shadow-lg rounded-lg h-90 w-60 md:w-80 cursor-pointer m-auto  "
             >
               <a href="#" className="w-full block h-full">
                 <Image
                   alt="blog photo"
-                  src={data.image}
+                  src={data.image[0].url}
                   width={500}
                   height={600}
                   className="max-h-40 w-full object-cover"
                 />
                 <div className="bg-white dark:bg-gray-800 w-full p-4">
                   <p className="text-gray-800 dark:text-white text-xl font-medium mb-2">
-                    {data.description}
+                    {data.name}
                   </p>
                   <p className="text-gray-800 dark:text-gray-500 font-light text-md">
                     {data.price}
@@ -89,12 +71,13 @@ function BestSeller({}: Props) {
                     </svg>
                   </div>
                   <div className="flex mb-4 mt-4 text-sm font-medium">
-                    <button
+                    <a
+                      href={`/products/${data._id}`}
                       type="button"
                       className="px-4 py-2 mt-2 text-gray-600 transition-colors duration-300 transform border rounded-lg dark:text-gray-200 dark:border-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none w-full"
                     >
                       View Product
-                    </button>
+                    </a>
                   </div>
                 </div>
               </a>
@@ -104,6 +87,6 @@ function BestSeller({}: Props) {
       </div>
     </div>
   );
-}
+};
 
 export default BestSeller;

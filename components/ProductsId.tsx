@@ -17,7 +17,6 @@ export const ProductsId = () => {
   // render data
   return (
     <div className="mt-10 mb-20">
-      <h1 className="text-4xl text-center">Best Sellers</h1>
       <div className="grid grid-cols-1 gap-5 mt-10 md:grid-cols-2 lg:grid-cols-4 ">
         {products.map((data: any) => {
           return (
@@ -73,12 +72,13 @@ export const ProductsId = () => {
                     </svg>
                   </div>
                   <div className="flex mb-4 mt-4 text-sm font-medium">
-                    <button
+                    <a
+                      href={`/products/${data._id}`}
                       type="button"
                       className="px-4 py-2 mt-2 text-gray-600 transition-colors duration-300 transform border rounded-lg dark:text-gray-200 dark:border-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none w-full"
                     >
                       View Product
-                    </button>
+                    </a>
                   </div>
                 </div>
               </a>
@@ -97,3 +97,5 @@ export const ProductsId = () => {
     </div>
   );
 };
+
+export default ProductsId;
