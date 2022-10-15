@@ -8,14 +8,14 @@ import { fetcher } from "../../libs";
 
 const ProductsDetail = () => {
   const router = useRouter();
-  const { id } = router.query;
+  const { productId } = router.query;
 
   const { data: product, error } = useSWR(
-    `https://api.kontenbase.com/query/api/v1/bee912c9-4dfd-4be3-97cc-5b3a353e0ac6/products/${id}`,
+    `https://api.kontenbase.com/query/api/v1/bee912c9-4dfd-4be3-97cc-5b3a353e0ac6/products/${productId}`,
     fetcher
   );
 
-  if (error) return <div>Failed to load product by id: {id}</div>;
+  if (error) return <div>Failed to load product by id: {productId}</div>;
   if (!product) return <div>Loading product details...</div>;
 
   return (
