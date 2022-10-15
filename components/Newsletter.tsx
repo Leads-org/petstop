@@ -1,11 +1,9 @@
 import React from "react";
 
-type Props = {};
-
-const Newslatter = ({}: Props) => {
+const Newsletter = () => {
   return (
     <div className="container mx-auto mt-7 flex flex-col gap-3 items-center ">
-      <h3 className="text-2xl font-bold ">Sign Up + Save</h3>
+      <h3 className="text-2xl font-bold ">Subscribe and save</h3>
       <p className="text-slate-500">
         Join our mailing list for food pets, pet care, and fun news from us! We
         send out an email once a week.
@@ -22,9 +20,9 @@ const Newslatter = ({}: Props) => {
               xmlns="http://www.w3.org/2000/svg"
             >
               <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
                 d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
               ></path>
             </svg>
@@ -48,4 +46,4 @@ const Newslatter = ({}: Props) => {
   );
 };
 
-export default Newslatter;
+export default Newsletter;

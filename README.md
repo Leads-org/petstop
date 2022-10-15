@@ -1,6 +1,6 @@
-# A simple ecommerce apps about pets
+# PetStop
 
-Project description with clear goal.
+A simple ecommerce apps about pets
 
 ![Screenshot 1]()
 
@@ -8,36 +8,42 @@ Project description with clear goal.
 
 ## Links
 
-- https://nekoomushi.netlify.app/
+### Production Frontend/Client
 
-### Production
+- https://leads-petstop.netlify.app
+- https://petstop.mzoel.com
+- https://petstop.adefaisal.com
+- https://petstop.makmurmakmur.com
+- https://petstop.vektorlutfi.com
 
-- https://project.vercel.app
-
-### Local
+### Local Frontend/Client
 
 - http://localhost:3000
-- http://localhost:5173
+
+### Production Backend/Server
+
+- https://api.kontenbase.com/query/api/v1/bee912c9-4dfd-4be3-97cc-5b3a353e0ac6
 
 ### Design
 
 - Figma Mockup: https://www.figma.com/file/5Fg06BGKaD9idXYMK62xYp/Petshub?node-id=0%3A1
-- Figma Prototype: https://www.figma.com/file/5Fg06BGKaD9idXYMK62xYp/Petshub?node-id=0%3A1
+- Figma Prototype: https://www.figma.com/proto/5Fg06BGKaD9idXYMK62xYp/Petshub?node-id=3%3A7&scaling=scale-down-width&page-id=0%3A1
 
 ## Main Features
 
-- List Product
-- Detail Product
-- Orders
-- Shopping cart
-- profile customer
+- [x] See landing page
+- [x] List all products
+- [x] See product details
+- [ ] Customer profile
+- [ ] Shopping cart
+- [ ] Orders
 
 ## Team Members
 
 | Name                         | Role              | GitHub URL                                                     |
 | ---------------------------- | ----------------- | -------------------------------------------------------------- |
 | Muhammad Zulkarnaen Indranto | Lead, Frontend    | [@zul1996](https://github.com/zul1996)                         |
-| Makmur                       | Design, Docs      | [@makmuremha](https://github.com/makmuremha)                   |
+| Makmur                       | Frontend, Design  | [@makmuremha](https://github.com/makmuremha)                   |
 | Muhammad Lutfi               | Frontend, Design  | [@vektormuhammadlutfi](https://github.com/vektormuhammadlutfi) |
 | Ade Ahmad Faisal             | Frontend, Backend | [@adeahmadfaisal](https://github.com/adeahmadfaisal)           |
 
@@ -54,10 +60,13 @@ Project description with clear goal.
 - React
   - Next.js v12
     - next/router
-    - next/image
+    - next/link
     - next/head
+    - next/image
+- Backend
+  - REST API: Kontenbase
 - Data Fetching
-  - REST API: `axios`
+  - REST API: `swr` / `axios`
 - UI Components
   - Radix UI
 - Misc
@@ -66,16 +75,16 @@ Project description with clear goal.
 
 ## API Specification
 
-API URL: https://api.kontenbase.com/query/api/v1/bee912c9-4dfd-4be3-97cc-5b3a353e0ac6/products
+API URL: https://api.kontenbase.com/query/api/v1/bee912c9-4dfd-4be3-97cc-5b3a353e0ac6
 
 ### Products
 
-| HTTP   | Endpoint        | Description      |
-| ------ | --------------- | ---------------- |
-| GET    | `/products`     | Get all products |
-| POST   | `/products`     | Create products  |
-| PATCH  | `/products/:id` | Edit products    |
-| DELETE | `/products/:id` | Delete products  |
+| HTTP   | Endpoint        | Description          |
+| ------ | --------------- | -------------------- |
+| GET    | `/products`     | Get all products     |
+| POST   | `/products`     | Create new product   |
+| PATCH  | `/products/:id` | Edit product by id   |
+| DELETE | `/products/:id` | Delete product by id |
 
 ```json
 [
@@ -83,33 +92,35 @@ API URL: https://api.kontenbase.com/query/api/v1/bee912c9-4dfd-4be3-97cc-5b3a353
     "_id": "",
     "name": "",
     "price": "",
-    "descriptions": "",
-    "category_id": "",
+    "description": "",
     "image": [
       {
         "fileName": "",
         "url": ""
       }
-    ]
+    ],
+    "category": {},
+    "created_at": "",
+    "updated_at": ""
   }
 ]
 ```
 
 ### Products Category
 
-| HTTP   | Endpoint                | Description              |
-| ------ | ----------------------- | ------------------------ |
-| GET    | `/product-category`     | Get all product category |
-| POST   | `/product-category`     | Create product category  |
-| PATCH  | `/product-category/:id` | Edit product category    |
-| DELETE | `/product-category/:id` | Delete product category  |
+| HTTP   | Endpoint                | Description                   |
+| ------ | ----------------------- | ----------------------------- |
+| GET    | `/product-category`     | Get all product categories    |
+| POST   | `/product-category`     | Create product category       |
+| PATCH  | `/product-category/:id` | Edit product category by id   |
+| DELETE | `/product-category/:id` | Delete product category by id |
 
 ```json
 [
   {
     "_id": "",
     "name": "",
-    "descriptions": ""
+    "description": ""
   }
 ]
 ```

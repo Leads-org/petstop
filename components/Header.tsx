@@ -1,53 +1,44 @@
+import Link from "next/link";
 import React, { useState } from "react";
 
-type Props = {};
-
-function Header({}: Props) {
+function Header() {
   const [searchInput, setSearchInput] = useState(true);
+
   return (
     <div className="dark:bg-gray-900">
       <div>
         <div className="relative">
           <div className="dark:bg-gray-900 bg-[#FFD7A8] px-6 py-9">
-            <div className="container mx-auto flex items-center justify-between">
-              <h1
-                className="md:w-2/12 cursor-pointer text-gray-800 font-sans dark:text-white"
-                aria-label="the Crib."
-              >
-                PetStop
-              </h1>
+            <nav className="container mx-auto flex items-center justify-between">
+              <Link href="/">
+                <h1
+                  className="md:w-2/12 cursor-pointer text-gray-800 font-sans dark:text-white"
+                  aria-label="PetStop"
+                >
+                  PetStop
+                </h1>
+              </Link>
               <ul className="hidden w-8/12 md:flex items-center justify-center space-x-8">
                 <li>
-                  <a
-                    href="./"
-                    className="dark:text-white text-base text-gray-800 focus:outline-none focus:ring-2 focus:ring-gray-800 hover:underline"
-                  >
-                    Home
-                  </a>
+                  <Link href="/">
+                    <a className="dark:text-white text-base text-gray-800 focus:outline-none focus:ring-2 focus:ring-gray-800 hover:underline">
+                      Home
+                    </a>
+                  </Link>
                 </li>
                 <li>
-                  <a
-                    href="./products"
-                    className="dark:text-white text-base text-gray-800 focus:outline-none focus:ring-2 focus:ring-gray-800 hover:underline"
-                  >
-                    Products
-                  </a>
+                  <Link href="/products">
+                    <a className="dark:text-white text-base text-gray-800 focus:outline-none focus:ring-2 focus:ring-gray-800 hover:underline">
+                      Products
+                    </a>
+                  </Link>
                 </li>
                 <li>
-                  <a
-                    href="#"
-                    className="dark:text-white text-base text-gray-800 focus:outline-none focus:ring-2 focus:ring-gray-800 hover:underline"
-                  >
-                    Our Story
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="#"
-                    className="dark:text-white text-base text-gray-800 focus:outline-none focus:ring-2 focus:ring-gray-800 hover:underline"
-                  >
-                    Wholesale
-                  </a>
+                  <Link href="/story">
+                    <a className="dark:text-white text-base text-gray-800 focus:outline-none focus:ring-2 focus:ring-gray-800 hover:underline">
+                      Our Story
+                    </a>
+                  </Link>
                 </li>
               </ul>
               <div className="md:w-2/12 justify-end flex items-center space-x-4 xl:space-x-8">
@@ -128,7 +119,7 @@ function Header({}: Props) {
                   </button>
                 </div>
               </div>
-            </div>
+            </nav>
           </div>
         </div>
       </div>

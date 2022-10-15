@@ -1,39 +1,41 @@
-import React from "react";
 import Image from "next/image";
-
-type Props = {};
 
 const images = [
   {
     id: 1,
-    image: "/pet-food-icon.png",
-    description: "foods",
+    imageUrl: "/pet-food-icon.png",
+    description: "Foods",
   },
   {
     id: 2,
-    image: "/pet-accecories-icon.png",
-    description: "accessories",
+    imageUrl: "/pet-accecories-icon.png",
+    description: "Accessories",
   },
   {
     id: 3,
-    image: "/toys-icon.png",
-    description: "toys",
+    imageUrl: "/toys-icon.png",
+    description: "Toys",
   },
 ];
 
-function Category({}: Props) {
+function Category() {
   return (
     <div className="text-center mt-10">
-      <h1 className="text-4xl mb-4">nyan nyan products</h1>
+      <h1 className="text-4xl mb-4">Favorite Products</h1>
       <h1 className="text-sm">
         Our products are the perfect way to show your pets how much you love
-        them ❤ !
+        them ❤!
       </h1>
       <div className="grid grid-cols-3 gap-10 mt-10 px-40">
         {images.map((image) => {
           return (
             <div key={image.id}>
-              <Image src={image.image} width={100} height={100} />
+              <Image
+                alt={image.description}
+                src={image.imageUrl}
+                width={100}
+                height={100}
+              />
               <h1 className="text-xl mt-5">{image.description}</h1>
             </div>
           );
