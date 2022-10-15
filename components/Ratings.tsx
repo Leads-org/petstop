@@ -1,7 +1,6 @@
 import React from "react";
-type Props = {};
 
-function Ratings({}: Props) {
+function Ratings() {
   return (
     <div className="flex item-center mt-2">
       <svg className="w-5 h-5 fill-current text-amber-400" viewBox="0 0 24 24">
