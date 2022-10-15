@@ -1,11 +1,9 @@
 import React from "react";
 
-type Props = {};
-
-const Newsletter = ({}: Props) => {
+const Newsletter = () => {
   return (
     <div className="container mx-auto mt-7 flex flex-col gap-3 items-center ">
-      <h3 className="text-2xl font-bold ">Sign Up + Save</h3>
+      <h3 className="text-2xl font-bold ">Subscribe and save</h3>
       <p className="text-slate-500">
         Join our mailing list for food pets, pet care, and fun news from us! We
         send out an email once a week.

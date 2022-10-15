@@ -1,13 +1,17 @@
 import React from "react";
 import Image from "next/image";
-type Props = {};
 
-function Satisfaction({}: Props) {
+function Satisfaction() {
   return (
     <div className="bg-[#EBC15D] pt-10 pb-10">
       <div className="grid grid-cols-1  md:grid-cols-2  ">
         <div className="ml-10 text-center">
-          <Image src="/satisfaction-hero.png" width={510} height={474} />
+          <Image
+            alt="Satisfaction"
+            src="/satisfaction-hero.png"
+            width={510}
+            height={474}
+          />
         </div>
         <div className="p-10 text-left mt-10 md:mt-40">
           <h1 className="text-4xl font-bold">Satisfaction Guarantee</h1>
