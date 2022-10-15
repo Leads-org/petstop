@@ -11,21 +11,20 @@ export const Products = () => {
   const [count, setCount] = useState(4);
 
   const { data: products, error: productsError } = useSWR(
-    `${process.env.NEXT_PUBLIC_BACKEND_URL}/products?$limit=${count}`,
+    `/api/products?count=${count}`,
     fetcher
   );
 
   const { data: productsCount, error: productsCountError } = useSWR(
-    `${process.env.NEXT_PUBLIC_BACKEND_URL}/products/count`,
+    `/api/products/count`,
     fetcher
   );
 
-  if (productsCountError) return <div>failed to load</div>;
-  if (!productsCount) return <div>loading...</div>;
-
-  // console.log(productsCount);
+  if (productsCountError) return <div>Failed to load</div>;
+  if (!productsCount) return <div>Loading products...</div>;
 
   let buttonLoadMore;
+
   if (count < productsCount?.count) {
     buttonLoadMore = (
       <button
