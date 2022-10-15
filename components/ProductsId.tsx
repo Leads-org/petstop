@@ -1,11 +1,12 @@
+import React, { useState } from "react";
 import useSWR from "swr";
 import { fetcher } from "../libs";
 import Image from "next/image";
-// import { dataProducts } from "../types/dataProducts";
 
 export const ProductsId = () => {
+  const [count, setCount] = useState(4);
   const { data: products, error } = useSWR(
-    "https://api.kontenbase.com/query/api/v1/bee912c9-4dfd-4be3-97cc-5b3a353e0ac6/products",
+    `https://api.kontenbase.com/query/api/v1/bee912c9-4dfd-4be3-97cc-5b3a353e0ac6/products?$limit=${count}`,
     fetcher
   );
   console.log(products);
@@ -84,6 +85,14 @@ export const ProductsId = () => {
             </div>
           );
         })}
+      </div>
+      <div className="grid grid-cols-1 m-10">
+        <button
+          onClick={() => setCount(count + 4)}
+          className="bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded"
+        >
+          Load More
+        </button>
       </div>
     </div>
   );
