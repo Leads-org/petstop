@@ -6,7 +6,7 @@ import BestSeller from "../components/BestSeller";
 import Header from "../components/Header";
 import Hero from "../components/Hero";
 import Satisfaction from "../components/Satisfaction";
-import Newslatter from "../components/Newslatter";
+import Newsletter from "../components/Newsletter";
 
 const Home: NextPage = () => {
   return (
@@ -20,7 +20,7 @@ const Home: NextPage = () => {
       <Category />
       <BestSeller />
       <Satisfaction />
-      <Newslatter />
+      <Newsletter />
       {/* <Footer /> */}
     </div>
   );
