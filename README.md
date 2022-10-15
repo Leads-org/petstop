@@ -6,6 +6,8 @@ A simple ecommerce apps about pets
 
 ![Screenshot 2]()
 
+![Screenshot 3]()
+
 ## Links
 
 ### Production Frontend/Client
