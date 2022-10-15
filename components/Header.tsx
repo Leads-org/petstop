@@ -5,14 +5,14 @@ function Header() {
   const [searchInput, setSearchInput] = useState(true);
 
   return (
-    <div className="dark:bg-gray-900">
+    <div className="bg-[#FFD7A8]">
       <div>
         <div className="relative">
-          <div className="dark:bg-gray-900 bg-[#FFD7A8] px-6 py-9">
+          <div className="  px-6 py-9">
             <nav className="container mx-auto flex items-center justify-between">
               <Link href="/">
                 <h1
-                  className="md:w-2/12 cursor-pointer text-gray-800 font-sans dark:text-white"
+                  className="md:w-2/12 cursor-pointer text-gray-800 font-semibold dark:text-black"
                   aria-label="PetStop"
                 >
                   PetStop
@@ -21,21 +21,21 @@ function Header() {
               <ul className="hidden w-8/12 md:flex items-center justify-center space-x-8">
                 <li>
                   <Link href="/">
-                    <a className="dark:text-white text-base text-gray-800 focus:outline-none focus:ring-2 focus:ring-gray-800 hover:underline">
+                    <a className="dark:text-black font-semibold text-gray-800 focus:outline-none focus:ring-2 focus:ring-gray-800 hover:underline">
                       Home
                     </a>
                   </Link>
                 </li>
                 <li>
                   <Link href="/products">
-                    <a className="dark:text-white text-base text-gray-800 focus:outline-none focus:ring-2 focus:ring-gray-800 hover:underline">
+                    <a className="dark:text-black font-semibold text-gray-800 focus:outline-none focus:ring-2 focus:ring-gray-800 hover:underline">
                       Products
                     </a>
                   </Link>
                 </li>
                 <li>
                   <Link href="/story">
-                    <a className="dark:text-white text-base text-gray-800 focus:outline-none focus:ring-2 focus:ring-gray-800 hover:underline">
+                    <a className="dark:text-black font-semibold text-gray-800 focus:outline-none focus:ring-2 focus:ring-gray-800 hover:underline">
                       Our Story
                     </a>
                   </Link>
@@ -46,7 +46,7 @@ function Header() {
                   <button
                     onClick={() => setSearchInput(!searchInput)}
                     aria-label="search items"
-                    className="text-gray-800 dark:hover:text-gray-300 dark:text-white focus:outline-none focus:ring-2 focus:ring-gray-800"
+                    className="text-gray-800 dark:hover:text-gray-300 dark:text-black focus:outline-none focus:ring-2 focus:ring-gray-800"
                   >
                     <svg
                       className="fill-stroke"
@@ -84,7 +84,7 @@ function Header() {
                 <div className="hidden lg:flex items-center space-x-4 xl:space-x-8">
                   <button
                     aria-label="go to cart"
-                    className="text-gray-800 dark:hover:text-gray-300 dark:text-white focus:outline-none focus:ring-2 focus:ring-gray-800"
+                    className="text-gray-800 dark:hover:text-gray-300 dark:text-black focus:outline-none focus:ring-2 focus:ring-gray-800"
                   >
                     <svg
                       className="fill-stroke"

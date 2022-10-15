@@ -13,7 +13,7 @@ function Satisfaction() {
             height={474}
           />
         </div>
-        <div className="p-10 text-left mt-10 md:mt-40">
+        <div className="p-10 text-left mt-10 md:mt-20">
           <h1 className="text-4xl font-bold">Satisfaction Guarantee</h1>
           <p className="text-lg mt-5">
             We`re lucky to have so many happy customers. We`re confident you`ll

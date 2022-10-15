@@ -6,7 +6,7 @@ module.exports = {
   ],
   theme: {
     fontFamily: {
-      sans: ["Segoe UI", "sans-serif"],
+      sans: ["Poppins", "sans-serif"],
     },
     extend: {},
   },

@@ -7,22 +7,22 @@ import Header from "../components/Header";
 import Hero from "../components/Hero";
 import Satisfaction from "../components/Satisfaction";
 import Newsletter from "../components/Newsletter";
+import Footer from "../components/Footer";
+import Layout from "../components/Layout";
 
 const Home: NextPage = () => {
   return (
-    <div>
+    <Layout>
       <Head>
         <title>PetStop</title>
       </Head>
 
-      <Header />
       <Hero />
       <Category />
       <BestSeller />
       <Satisfaction />
       <Newsletter />
-      {/* <Footer /> */}
-    </div>
+    </Layout>
   );
 };
 
