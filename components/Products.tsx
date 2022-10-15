@@ -9,13 +9,37 @@ import FormatCurrency from "./FormatCurrency";
 
 export const Products = () => {
   const [count, setCount] = useState(4);
-  const { data: products, error } = useSWR(
+  
+  const { data: products, error: productsError } = useSWR(
     `https://api.kontenbase.com/query/api/v1/bee912c9-4dfd-4be3-97cc-5b3a353e0ac6/products?$limit=${count}`,
     fetcher
   );
-  // console.log(products);
 
-  if (error) return <div>failed to load</div>;
+  const { data: productsCount, error: productsCountError } = useSWR(
+    `https://api.kontenbase.com/query/api/v1/bee912c9-4dfd-4be3-97cc-5b3a353e0ac6/products/count`,
+    fetcher
+  );
+
+  if (productsCountError) return <div>failed to load</div>;
+  if (!productsCount) return <div>loading...</div>;
+
+  // console.log(productsCount);
+
+  let buttonLoadMore;
+  if (count < productsCount?.count) {
+    buttonLoadMore = (
+      <button
+        onClick={() => setCount(count + 4)}
+        className="bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded"
+      >
+        Load More
+      </button>
+    );
+  } else {
+    buttonLoadMore = null;
+  }
+
+  if (productsError) return <div>failed to load</div>;
   if (!products) return <div>loading...</div>;
 
   // render data
@@ -25,7 +49,7 @@ export const Products = () => {
         {products.map((data: any) => {
           return (
             <div
-              key={data.id}
+              key={data._id}
               className="overflow-hidden shadow-lg rounded-lg h-90 w-60 md:w-80 cursor-pointer m-auto  "
             >
               <Link href={`/products/${data._id}`}>
@@ -54,14 +78,7 @@ export const Products = () => {
           );
         })}
       </div>
-      <div className="grid grid-cols-1 m-10">
-        <button
-          onClick={() => setCount(count + 4)}
-          className="bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded"
-        >
-          Load More
-        </button>
-      </div>
+      <div className="grid grid-cols-1 m-10">{buttonLoadMore}</div>
     </div>
   );
 };
