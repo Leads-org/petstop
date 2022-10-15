@@ -1,9 +1,7 @@
 import React from "react";
 import Image from "next/image";
 
-type Props = {};
-
-function Hero({}: Props) {
+function Hero() {
   return (
     <div className="container mx-auto flex  items-center ">
       <div className="grid grid-cols-1 m-10 md:grid-cols-2  ">
