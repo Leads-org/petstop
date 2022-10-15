@@ -5,7 +5,7 @@ interface toIDR {
 const formatCurrency = ({ price }: toIDR) => {
   return (
     <>
-      {new Intl.NumberFormat("hr-ID", {
+      {new Intl.NumberFormat("id-ID", {
         style: "currency",
         currency: "IDR",
       }).format(price)}
