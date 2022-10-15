@@ -66,7 +66,7 @@ Project description with clear goal.
 
 ## API Specification
 
-API URL:
+API URL: https://api.kontenbase.com/query/api/v1/bee912c9-4dfd-4be3-97cc-5b3a353e0ac6/products
 
 ### Products
 
