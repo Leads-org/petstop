@@ -14,6 +14,11 @@ const ProductsDetail = () => {
     fetcher
   );
 
+  console.log(products);
+
+  if (error) return <div>failed to load</div>;
+  if (!products) return <div>loading...</div>;
+
   return (
     <div>
       <Head>
@@ -25,16 +30,17 @@ const ProductsDetail = () => {
 
       <div className="mt-10 mb-20">
         <div
-          key={products.id}
+          key={products._id}
           className="overflow-hidden shadow-lg rounded-lg h-90 w-full cursor-pointer m-auto p-10"
         >
           <a href="#" className="w-full block h-full">
             <Image
               alt="blog photo"
-              src={products.image[0].url}
+              src={products.image[0]?.url}
               width={500}
               height={600}
               className="max-h-40 w-full object-cover"
+              priority
             />
             <div className="bg-white dark:bg-gray-800 w-full p-4">
               <p className="text-gray-800 dark:text-white text-xl font-medium mb-2">
