@@ -11,13 +11,8 @@ const Products: NextPage = () => {
         <title>Products | Petstop</title>
       </Head>
 
-      {/* Header */}
       <Header />
-
-      {/* Navbar Categories */}
       <NavCategory />
-
-      {/* Products */}
       <ProductsId />
 
       {/* footer */}

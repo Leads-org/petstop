@@ -4,17 +4,17 @@ const images = [
   {
     id: 1,
     imageUrl: "/pet-food-icon.png",
-    description: "foods",
+    description: "Foods",
   },
   {
     id: 2,
     imageUrl: "/pet-accecories-icon.png",
-    description: "accessories",
+    description: "Accessories",
   },
   {
     id: 3,
     imageUrl: "/toys-icon.png",
-    description: "toys",
+    description: "Toys",
   },
 ];
 
