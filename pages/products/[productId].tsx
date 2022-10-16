@@ -6,6 +6,7 @@ import useSWR from "swr";
 import Header from "../../components/Header";
 import { fetcher } from "../../libs";
 import Ratings from "../../components/Ratings";
+import FormatCurrency from "../../components/FormatCurrency";
 
 const ProductsDetail = () => {
   const router = useRouter();
@@ -53,7 +54,7 @@ const ProductsDetail = () => {
                 </p>
                 <div className="flex item-center justify-between mt-10">
                   <button className="bg-transparent hover:bg-orange-600 text-sky-500 font-semibold shadow-md hover:text-white py-2 px-4 border border-stone-700 hover:border-transparent rounded">
-                    Add to Card - {product.price}
+                    Add to Card - <FormatCurrency price={product.price} />
                   </button>
                 </div>
               </div>
