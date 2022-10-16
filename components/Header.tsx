@@ -1,6 +1,6 @@
 import Link from "next/link";
 import React, { useState } from "react";
-import logo from "../public/logo.svg";
+import logoPetStop from "../public/logoPetStop.svg";
 import search from "../public/search.svg";
 import Cart from "../public/Cart.svg";
 import Image from "next/image";
@@ -17,7 +17,7 @@ function Header() {
               <Link href="/">
                 <Image
                   alt="Logo"
-                  src={logo}
+                  src={logoPetStop}
                   width={120}
                   height={120}
                   className=" w-full "
