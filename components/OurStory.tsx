@@ -1,13 +1,14 @@
 import React from "react";
 import Image from "next/image";
-import logo from "../public/logo.svg";
-import { FaBriefcase, FaMoneyBillAlt } from "react-icons/fa";
+import logo from "../public/logo-petstop.svg";
 import {
   FcComboChart,
   FcApproval,
   FcBriefcase,
   FcCollaboration,
 } from "react-icons/fc";
+
+import Link from "next/link";
 
 const OurStory = () => {
   return (
@@ -24,13 +25,17 @@ const OurStory = () => {
       <div className="flex justify-center ">
         <div className="grid grid-cols-2 pt-10 gap-60 place-content-center content-center">
           <div>
-            <Image
-              alt="Logo"
-              src={logo}
-              width={300}
-              height={300}
-              className=" w-full "
-            />
+            <Link href="/">
+              <a>
+                <Image
+                  alt="Logo"
+                  src={logo}
+                  width={300}
+                  height={300}
+                  className=" w-full "
+                />
+              </a>
+            </Link>
           </div>
           <div className="flex flex-col gap-4 justify-start ">
             <div className="flex gap-3">

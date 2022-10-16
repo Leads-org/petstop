@@ -15,13 +15,15 @@ function Header() {
           <div className="  px-6 py-3">
             <nav className="container mx-auto flex items-center justify-between">
               <Link href="/">
-                <Image
-                  alt="Logo"
-                  src={logo}
-                  width={120}
-                  height={120}
-                  className=" w-full "
-                />
+                <a>
+                  <Image
+                    alt="Logo"
+                    src={logo}
+                    width={120}
+                    height={120}
+                    className=" w-full "
+                  />
+                </a>
               </Link>
               <ul className="hidden w-8/12 md:flex items-center justify-center space-x-8">
                 <li>
