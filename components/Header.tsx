@@ -1,6 +1,6 @@
 import Link from "next/link";
 import React, { useState } from "react";
-import logo from "../public/logo.svg";
+import logo from "../public/logo-petstop.svg";
 import search from "../public/search.svg";
 import Cart from "../public/Cart.svg";
 import Image from "next/image";
