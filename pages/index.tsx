@@ -1,6 +1,5 @@
 import type { NextPage } from "next";
 import Head from "next/head";
-
 import Category from "../components/Category";
 import BestSeller from "../components/BestSeller";
 import Header from "../components/Header";

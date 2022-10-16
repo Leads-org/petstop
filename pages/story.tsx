@@ -2,6 +2,7 @@ import type { NextPage } from "next";
 import Head from "next/head";
 
 import Layout from "../components/Layout";
+import OurStory from "../components/OurStory";
 
 const Story: NextPage = () => {
   return (
@@ -10,6 +11,7 @@ const Story: NextPage = () => {
         <title>Story of PetStop</title>
       </Head>
 
+      <OurStory />
       {/* Content */}
     </Layout>
   );

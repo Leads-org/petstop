@@ -5,6 +5,7 @@ import useSWR from "swr";
 
 import Header from "../../components/Header";
 import { fetcher } from "../../libs";
+import Ratings from "../../components/Ratings";
 
 const ProductsDetail = () => {
   const router = useRouter();
@@ -43,41 +44,10 @@ const ProductsDetail = () => {
             />
             <a href="#" className="w-full block h-full">
               <div className="bg-white dark:bg-gray-800 w-full p-4">
-                <h1 className="text-gray-800 dark:text-white text-xl font-medium text-3xl mb-5">
+                <h1 className="text-gray-800 dark:text-white font-medium text-3xl mb-5">
                   {product.name}
                 </h1>
-                <div className="flex item-center mt-2 mb-5">
-                  <svg
-                    className="w-5 h-5 fill-current text-amber-400"
-                    viewBox="0 0 24 24"
-                  >
-                    <path d="M12 17.27L18.18 21L16.54 13.97L22 9.24L14.81 8.63L12 2L9.19 8.63L2 9.24L7.46 13.97L5.82 21L12 17.27Z"></path>
-                  </svg>
-                  <svg
-                    className="w-5 h-5 fill-current text-amber-400"
-                    viewBox="0 0 24 24"
-                  >
-                    <path d="M12 17.27L18.18 21L16.54 13.97L22 9.24L14.81 8.63L12 2L9.19 8.63L2 9.24L7.46 13.97L5.82 21L12 17.27Z"></path>
-                  </svg>
-                  <svg
-                    className="w-5 h-5 fill-current text-amber-400"
-                    viewBox="0 0 24 24"
-                  >
-                    <path d="M12 17.27L18.18 21L16.54 13.97L22 9.24L14.81 8.63L12 2L9.19 8.63L2 9.24L7.46 13.97L5.82 21L12 17.27Z"></path>
-                  </svg>
-                  <svg
-                    className="w-5 h-5 fill-current text-gray-500"
-                    viewBox="0 0 24 24"
-                  >
-                    <path d="M12 17.27L18.18 21L16.54 13.97L22 9.24L14.81 8.63L12 2L9.19 8.63L2 9.24L7.46 13.97L5.82 21L12 17.27Z"></path>
-                  </svg>
-                  <svg
-                    className="w-5 h-5 fill-current text-gray-500"
-                    viewBox="0 0 24 24"
-                  >
-                    <path d="M12 17.27L18.18 21L16.54 13.97L22 9.24L14.81 8.63L12 2L9.19 8.63L2 9.24L7.46 13.97L5.82 21L12 17.27Z"></path>
-                  </svg>
-                </div>
+                <Ratings />
                 <p className="text-gray-800 dark:text-white font-medium mb-2">
                   {product.description}
                 </p>
