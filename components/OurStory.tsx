@@ -8,6 +8,8 @@ import {
   FcCollaboration,
 } from "react-icons/fc";
 
+import Link from "next/link";
+
 const OurStory = () => {
   return (
     <div className="">
