@@ -1,6 +1,6 @@
 import React from "react";
 import Image from "next/image";
-import logoPetStop from "../public/logoPetStop.svg";
+import logoPetStop from "../public/logo-PetStop.svg";
 import {
   FcComboChart,
   FcApproval,
