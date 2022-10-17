@@ -59,11 +59,11 @@ export const Products = () => {
                     height={600}
                     className="max-h-40 w-full object-cover"
                   />
-                  <div className="bg-white dark:bg-gray-800 w-full p-4">
-                    <p className="text-gray-800 dark:text-white text-xl font-medium mb-2">
+                  <div className="bg-white  w-full p-4">
+                    <p className="text-gray-800  text-xl font-medium mb-2">
                       {data.name}
                     </p>
-                    <p className="text-gray-800 dark:text-gray-500 font-light text-md">
+                    <p className="text-gray-800  font-light text-md">
                       <FormatCurrency price={data.price} />
                     </p>
                     <div className="flex item-center mt-2">

@@ -1,7 +1,6 @@
 import React from "react";
 import Image from "next/image";
-import logo from "../public/logo.svg";
-import { FaBriefcase, FaMoneyBillAlt } from "react-icons/fa";
+import logoPetStop from "../public/logo-PetStop.svg";
 import {
   FcComboChart,
   FcApproval,
@@ -26,7 +25,7 @@ const OurStory = () => {
           <div>
             <Image
               alt="Logo"
-              src={logo}
+              src={logoPetStop}
               width={300}
               height={300}
               className=" w-full "
