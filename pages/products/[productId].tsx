@@ -46,7 +46,7 @@ const ProductsDetail = () => {
               src={product?.image[0]?.url}
               width={500}
               height={600}
-              className="max-h-40 w-full object-cover"
+              className="max-h-40 w-full object-contain"
               priority
             />
             <a href="#" className="w-full block h-full">

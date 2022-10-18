@@ -28,48 +28,48 @@ function Header() {
               <ul className="hidden w-8/12 md:flex items-center justify-center space-x-8">
                 <li>
                   <Link href="/">
-                    <a className="dark:text-black font-semibold text-gray-800 focus:outline-none focus:ring-2 focus:ring-gray-800 hover:underline">
+                    <a className=" font-semibold text-gray-800 focus:outline-none focus:ring-2 focus:ring-gray-800 hover:underline">
                       Home
                     </a>
                   </Link>
                 </li>
                 <li>
                   <Link href="/products">
-                    <a className="dark:text-black font-semibold text-gray-800 focus:outline-none focus:ring-2 focus:ring-gray-800 hover:underline">
+                    <a className=" font-semibold text-gray-800 focus:outline-none focus:ring-2 focus:ring-gray-800 hover:underline">
                       Products
                     </a>
                   </Link>
                 </li>
                 <li>
                   <Link href="/story">
-                    <a className="dark:text-black font-semibold text-gray-800 focus:outline-none focus:ring-2 focus:ring-gray-800 hover:underline">
+                    <a className=" font-semibold text-gray-800 focus:outline-none focus:ring-2 focus:ring-gray-800 hover:underline">
                       Our Story
                     </a>
                   </Link>
                 </li>
               </ul>
               <div className="md:w-2/12 justify-end flex items-center space-x-4 xl:space-x-8">
-                <div className="hidden lg:flex items-center">
+                <div className="lg:flex items-center gap-3">
                   <button
                     onClick={() => setSearchInput(!searchInput)}
                     aria-label="search items"
-                    className="text-gray-800 dark:hover:text-gray-300 dark:text-black focus:outline-none focus:ring-2 focus:ring-gray-800"
+                    className="text-gray-800   focus:outline-none "
                   >
                     <Image
                       alt="Logo"
                       src={search}
-                      width={30}
-                      height={30}
+                      width={35}
+                      height={35}
                       className=" w-full "
                     />
                   </button>
                   <input
                     id="searchInput"
-                    type="text"
-                    placeholder="search"
+                    type="search"
+                    placeholder="Search"
                     className={` ${
                       searchInput ? "hidden" : ""
-                    } text-sm dark:bg-gray-900 dark:placeholder-gray-300 text-gray-600 rounded ml-1 border border-transparent focus:outline-none focus:border-gray-400 px-1`}
+                    } form-control relative flex-auto min-w-0 block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none`}
                   />
                 </div>
                 <div className="hidden lg:flex items-center space-x-4 xl:space-x-8">
