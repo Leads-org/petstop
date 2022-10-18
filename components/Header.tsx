@@ -73,18 +73,17 @@ function Header() {
                   />
                 </div>
                 <div className="hidden lg:flex items-center space-x-4 xl:space-x-8">
-                  <button
-                    aria-label="go to cart"
-                    className="text-gray-800 dark:hover:text-gray-300 dark:text-black focus:outline-none focus:ring-2 focus:ring-gray-800"
-                  >
-                    <Image
-                      alt="Logo"
-                      src={Cart}
-                      width={30}
-                      height={30}
-                      className=" w-full "
-                    />
-                  </button>
+                  <Link href="/carts">
+                    <a>
+                      <Image
+                        alt="Logo"
+                        src={Cart}
+                        width={30}
+                        height={30}
+                        className=" w-full "
+                      />
+                    </a>
+                  </Link>
                 </div>
               </div>
             </nav>
