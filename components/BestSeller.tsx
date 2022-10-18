@@ -33,7 +33,7 @@ export const BestSeller = () => {
                     src={data.image[0].url}
                     width={500}
                     height={600}
-                    className="max-h-40 w-full object-cover"
+                    className="max-h-40 w-full object-contain"
                   />
                   <div className="bg-white  w-full p-4">
                     <p className="text-gray-800  text-xl font-medium mb-2">
