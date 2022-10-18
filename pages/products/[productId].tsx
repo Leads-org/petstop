@@ -17,6 +17,12 @@ const ProductsDetail = () => {
     fetcher
   );
 
+  const handleClick = (e: any) => {
+    e.preventDefault();
+    let id = e.target.id;
+    console.log(id);
+  };
+
   if (error) return <div>Failed to load product by id: {productId}</div>;
   if (!product) return <div>Loading product details...</div>;
 
@@ -53,7 +59,12 @@ const ProductsDetail = () => {
                   {product.description}
                 </p>
                 <div className="flex item-center justify-between mt-10">
-                  <button className="bg-transparent hover:bg-orange-600 text-sky-500 font-semibold shadow-md hover:text-white py-2 px-4 border border-stone-700 hover:border-transparent rounded">
+                  <button
+                    id={product._id}
+                    data-id={product._id}
+                    onClick={handleClick}
+                    className="bg-transparent hover:bg-orange-600 text-sky-500 font-semibold shadow-md hover:text-white py-2 px-4 border border-stone-700 hover:border-transparent rounded"
+                  >
                     Add to Card - <FormatCurrency price={product.price} />
                   </button>
                 </div>
