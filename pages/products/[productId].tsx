@@ -63,7 +63,7 @@ const ProductsDetail = () => {
       <div className="mt-10 mb-20">
         <div
           key={product._id}
-          className="overflow-hidden rounded-lg h-90 w-full cursor-pointer m-auto px-24"
+          className="overflow-hidden rounded-lg h-90 w-full m-auto px-24"
         >
           <div className="grid grid-cols-2 gap-5 mt-10">
             <Image
@@ -88,7 +88,7 @@ const ProductsDetail = () => {
                     onClick={() => clickToCart()}
                     className="bg-transparent hover:bg-orange-600 text-sky-500 font-semibold shadow-md hover:text-white py-2 px-4 border border-stone-700 hover:border-transparent rounded"
                   >
-                    Add to Card - <FormatCurrency price={product.price} />
+                    Add to Cart - <FormatCurrency price={product.price} />
                   </button>
                 </div>
               </div>
