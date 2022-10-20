@@ -7,6 +7,9 @@ import Header from "../../components/Header";
 import { fetcher } from "../../libs";
 import Ratings from "../../components/Ratings";
 import FormatCurrency from "../../components/FormatCurrency";
+import Link from "next/link";
+import { useState } from "react";
+import axios from "axios";
 
 const ProductsDetail = () => {
   const router = useRouter();
@@ -17,10 +20,32 @@ const ProductsDetail = () => {
     fetcher
   );
 
-  const handleClick = (e: any) => {
-    e.preventDefault();
-    let id = e.target.id;
-    console.log(id);
+  const clickToCart = async () => {
+    try {
+      const cart = await axios.get(
+        `${process.env.NEXT_PUBLIC_BACKEND_URL}/carts?$lookup=*&products[0]=${productId}`
+      );
+      if (cart.data.length > 0) {
+        const respons = await axios.patch(
+          `${process.env.NEXT_PUBLIC_BACKEND_URL}/carts/${cart.data[0]._id}`,
+          {
+            quantity: cart.data[0].quantity + 1,
+          }
+        );
+      } else {
+        const respons = await axios.post(
+          `${process.env.NEXT_PUBLIC_BACKEND_URL}/carts`,
+          {
+            storageId: "",
+            totalPrice: 0,
+            quantity: 1,
+            products: [productId],
+          }
+        );
+      }
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   if (error) return <div>Failed to load product by id: {productId}</div>;
@@ -43,26 +68,24 @@ const ProductsDetail = () => {
           <div className="grid grid-cols-2 gap-5 mt-10">
             <Image
               alt="blog photo"
-              src={product?.image[0]?.url}
+              src={product.image[0].url}
               width={500}
               height={600}
               className="max-h-40 w-full object-contain"
               priority
             />
             <a href="#" className="w-full block h-full">
-              <div className="bg-white dark:bg-gray-800 w-full p-4">
-                <h1 className="text-gray-800 dark:text-white font-medium text-3xl mb-5">
+              <div className="bg-white  w-full p-4">
+                <h1 className=" text-black font-medium text-3xl mb-5">
                   {product.name}
                 </h1>
                 <Ratings />
-                <p className="text-gray-800 dark:text-white font-medium mb-2">
+                <p className=" text-black font-medium mb-2">
                   {product.description}
                 </p>
                 <div className="flex item-center justify-between mt-10">
                   <button
-                    id={product._id}
-                    data-id={product._id}
-                    onClick={handleClick}
+                    onClick={() => clickToCart()}
                     className="bg-transparent hover:bg-orange-600 text-sky-500 font-semibold shadow-md hover:text-white py-2 px-4 border border-stone-700 hover:border-transparent rounded"
                   >
                     Add to Card - <FormatCurrency price={product.price} />
