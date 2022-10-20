@@ -47,6 +47,7 @@ const ProductsDetail = () => {
           `${process.env.NEXT_PUBLIC_BACKEND_URL}/carts/${cart.data[0]._id}`,
           {
             quantity: cart.data[0].quantity + 1,
+            // TODO: totalPrice calculated here
           }
         );
       } else {
@@ -54,7 +55,7 @@ const ProductsDetail = () => {
           `${process.env.NEXT_PUBLIC_BACKEND_URL}/carts`,
           {
             storageId: "",
-            totalPrice: 0,
+            totalPrice: 0, // TODO: totalPrice calculated here
             quantity: 1,
             products: [productId],
           }
