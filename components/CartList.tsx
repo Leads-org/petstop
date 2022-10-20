@@ -6,12 +6,21 @@ import useSWR from "swr";
 import { fetcher } from "../libs";
 
 const Cart = () => {
-  const { data: Carts, error: cartError } = useSWR(`/api/carts`, fetcher);
+  const { data: productsInCart, error: cartError } = useSWR(
+    `/api/carts`,
+    // `/api/carts?filter`, // later can use filter
+    fetcher
+  );
 
   if (cartError) return <div>Failed to load product by id: </div>;
-  if (!Carts) return <div>Loading product details...</div>;
+  if (!productsInCart) return <div>Loading product details...</div>;
 
   let subTotal = 0;
+
+  const handleDeleteProductInCart = (productInCartId: string) => {
+    console.log({ productInCartId });
+  };
+
   return (
     <div className="">
       <h1 className="text-xl text-[#FFB156] flex justify-center pt-14 ">
@@ -27,36 +36,42 @@ const Cart = () => {
           <div className="basis-1/6">Action</div>
         </div>
         {/* Item cart */}
-        {Carts.map((data: any) => {
-          let totalPrice = data.products[0].price * data.quantity;
-          subTotal = subTotal + totalPrice;
+        {productsInCart.map((productInCart: any) => {
+          // const totalPrice =
+          //   productInCart.products[0].price * productInCart.quantity;
+
+          subTotal = subTotal + productInCart.totalPrice;
+
           return (
-            <div key={data._id} className="flex flex-row p-5">
+            <div key={productInCart._id} className="flex flex-row p-5">
               <div className="basis-1/2">
                 <div className="grid grid-cols-2">
                   <Image
                     alt="blog photo"
-                    src={data.products[0].image[0].url}
+                    src={productInCart.products[0].image[0].url}
                     width={100}
                     height={200}
                     className="max-h-40 object-cover"
                   />
                   <div>
                     <h1 className="text-xl font-bold">
-                      {data.products[0].name}
+                      {productInCart.products[0].name}
                     </h1>
                   </div>
                 </div>
               </div>
               <div className="basis-1/6">
-                <FormatCurrency price={data.products[0].price} />
+                <FormatCurrency price={productInCart.products[0].price} />
               </div>
-              <div className="basis-1/6">{data.quantity}</div>
+              <div className="basis-1/6">{productInCart.quantity}</div>
               <div className="basis-1/6">
-                <FormatCurrency price={totalPrice} />
+                <FormatCurrency price={productInCart.totalPrice} />
               </div>
               <div className="basis-1/6">
-                <button className="bg-transparent hover:bg-orange-600 text-sky-500 font-semibold shadow-md hover:text-white py-2 px-4 border border-stone-700 hover:border-transparent rounded">
+                <button
+                  onClick={() => handleDeleteProductInCart(productInCart._id)}
+                  className="bg-transparent hover:bg-orange-600 text-sky-500 font-semibold shadow-md hover:text-white py-2 px-4 border border-stone-700 hover:border-transparent rounded"
+                >
                   Delete
                 </button>
               </div>
