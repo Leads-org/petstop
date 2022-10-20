@@ -43,18 +43,19 @@ const ProductsDetail = () => {
       );
 
       if (cart.data.length > 0) {
-        const respons = await axios.patch(
+        const response = await axios.patch(
           `${process.env.NEXT_PUBLIC_BACKEND_URL}/carts/${cart.data[0]._id}`,
           {
             quantity: cart.data[0].quantity + 1,
+            // TODO: totalPrice calculated here
           }
         );
       } else {
-        const respons = await axios.post(
+        const response = await axios.post(
           `${process.env.NEXT_PUBLIC_BACKEND_URL}/carts`,
           {
             storageId: "",
-            totalPrice: 0,
+            totalPrice: 0, // TODO: totalPrice calculated here
             quantity: 1,
             products: [productId],
           }
