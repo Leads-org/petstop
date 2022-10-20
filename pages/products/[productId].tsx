@@ -43,14 +43,14 @@ const ProductsDetail = () => {
       );
 
       if (cart.data.length > 0) {
-        const respons = await axios.patch(
+        const response = await axios.patch(
           `${process.env.NEXT_PUBLIC_BACKEND_URL}/carts/${cart.data[0]._id}`,
           {
             quantity: cart.data[0].quantity + 1,
           }
         );
       } else {
-        const respons = await axios.post(
+        const response = await axios.post(
           `${process.env.NEXT_PUBLIC_BACKEND_URL}/carts`,
           {
             storageId: "",

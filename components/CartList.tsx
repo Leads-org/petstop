@@ -2,8 +2,9 @@ import React, { useState } from "react";
 import Image from "next/image";
 import FormatCurrency from "./FormatCurrency";
 
-import useSWR from "swr";
+import useSWR, { useSWRConfig } from "swr";
 import { fetcher } from "../libs";
+import axios from "axios";
 
 const Cart = () => {
   const { data: productsInCart, error: cartError } = useSWR(
@@ -11,6 +12,7 @@ const Cart = () => {
     // `/api/carts?filter`, // later can use filter
     fetcher
   );
+  const { mutate } = useSWRConfig();
 
   if (cartError) return <div>Failed to load product by id: </div>;
   if (!productsInCart) return <div>Loading product details...</div>;
@@ -18,7 +20,24 @@ const Cart = () => {
   let subTotal = 0;
 
   const handleDeleteProductInCart = (productInCartId: string) => {
-    console.log({ productInCartId });
+    const deleteCartById = async (productInCartId: string) => {
+      try {
+        const response = await axios.delete(
+          `${process.env.NEXT_PUBLIC_BACKEND_URL}/carts/${productInCartId}`
+        );
+        const data = response.data;
+        const newProductsInCart = productsInCart.filter(
+          (productInCart: any) => {
+            return productInCart._id !== data._id;
+          }
+        );
+        mutate("/api/carts", newProductsInCart);
+      } catch (error) {
+        console.error("Failed to delete product in cart by id (/carts/:id)");
+      }
+    };
+
+    deleteCartById(productInCartId);
   };
 
   return (
