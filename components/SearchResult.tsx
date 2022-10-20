@@ -19,8 +19,11 @@ export const Products = () => {
   if (!data) return <div>Loading products...</div>;
 
   const datafilter = data.filter(
-    (produk: any) =>
-      produk.name.includes(search) || produk.description.includes(search)
+    (products: any) =>
+      products.name.includes(search) ||
+      products.description.includes(search) ||
+      products.name.toLowerCase().includes(search) ||
+      products.description.toLowerCase().includes(search)
   ).length;
 
   // console.log(datafilter);
