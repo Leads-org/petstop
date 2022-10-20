@@ -21,10 +21,27 @@ const ProductsDetail = () => {
   );
 
   const clickToCart = async () => {
+    let cartStorage = JSON.parse(localStorage.getItem("cartStorage") || "[]");
+
+    let id;
+    cartStorage.length != 0
+      ? cartStorage.findLast((item: { id: any }) => (id = item.id))
+      : (id = 0);
+
+    var item = {
+      products: productId,
+      qty: 1,
+    };
+
+    //add item data to array
+    cartStorage.push(item);
+    localStorage.setItem("cartStorage", JSON.stringify(cartStorage));
+
     try {
       const cart = await axios.get(
         `${process.env.NEXT_PUBLIC_BACKEND_URL}/carts?$lookup=*&products[0]=${productId}`
       );
+
       if (cart.data.length > 0) {
         const respons = await axios.patch(
           `${process.env.NEXT_PUBLIC_BACKEND_URL}/carts/${cart.data[0]._id}`,
