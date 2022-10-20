@@ -8,12 +8,11 @@ import router from "next/router";
 
 function Header() {
   const [searchInput, setSearchInput] = useState(true);
-  const [findProduct, setProduct] = useState("");
+  const [keyword, setKeyword] = useState("");
+
   const handleKeyPress = (event: any) => {
-    let src = findProduct;
     if (event.key === "Enter") {
-      console.log(src);
-      router.push(`search?search=${src}`);
+      router.push(`/search?q=${keyword}`);
     }
   };
 
@@ -77,7 +76,7 @@ function Header() {
                     type="search"
                     placeholder="Search"
                     onKeyPress={handleKeyPress}
-                    onChange={(e) => setProduct(e.target.value)}
+                    onChange={(e) => setKeyword(e.target.value)}
                     className={` ${
                       searchInput ? "hidden" : ""
                     } form-control relative flex-auto min-w-0 block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none`}

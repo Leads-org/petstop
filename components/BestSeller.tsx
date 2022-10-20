@@ -10,7 +10,6 @@ export const BestSeller = () => {
     `${process.env.NEXT_PUBLIC_BACKEND_URL}/products?$limit=4`,
     fetcher
   );
-  console.log(products);
 
   if (error) return <div>failed to load</div>;
   if (!products) return <div>loading...</div>;
