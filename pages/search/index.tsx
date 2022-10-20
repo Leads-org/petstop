@@ -22,7 +22,10 @@ export const index = () => {
 
   const datafilter = data.filter(
     (produk: any) =>
-      produk.name.includes(search) || produk.description.includes(search)
+      produk.name.includes(search) ||
+      produk.description.toLowerCase().includes(search) ||
+      produk.name.toLowerCase().includes(search) ||
+      produk.description.toLowerCase().includes(search)
   ).length;
 
   // console.log(datafilter);
@@ -60,7 +63,9 @@ export const index = () => {
             .filter(
               (produk: any) =>
                 produk.name.includes(search) ||
-                produk.description.includes(search)
+                produk.description.toLowerCase().includes(search) ||
+                produk.name.toLowerCase().includes(search) ||
+                produk.description.toLowerCase().includes(search)
             )
             .map((produk: any) => {
               return (

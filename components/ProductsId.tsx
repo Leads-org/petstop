@@ -3,7 +3,7 @@ import useSWR from "swr";
 import { fetcher } from "../libs";
 import Image from "next/image";
 import Link from "next/link";
-import { convertIDR } from "../libs/ConvertRupiah";
+//import { convertIDR } from "../libs/ConvertRupiah";
 
 export const ProductsId = () => {
   const [count, setCount] = useState(4);
@@ -40,9 +40,7 @@ export const ProductsId = () => {
                     <p className="text-gray-800 dark:text-white text-xl font-medium mb-2">
                       {data.name}
                     </p>
-                    <p className="text-gray-800 dark:text-gray-500 font-light text-md">
-                      {convertIDR(data.price)}
-                    </p>
+                    <p className="text-gray-800 dark:text-gray-500 font-light text-md"></p>
                     <div className="flex item-center mt-2">
                       <svg
                         className="w-5 h-5 fill-current text-amber-400"
