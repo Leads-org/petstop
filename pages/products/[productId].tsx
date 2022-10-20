@@ -88,7 +88,7 @@ const ProductsDetail = () => {
                     onClick={() => clickToCart()}
                     className="bg-transparent hover:bg-orange-600 text-sky-500 font-semibold shadow-md hover:text-white py-2 px-4 border border-stone-700 hover:border-transparent rounded"
                   >
-                    Add to Card - <FormatCurrency price={product.price} />
+                    Add to Cart - <FormatCurrency price={product.price} />
                   </button>
                 </div>
               </div>
