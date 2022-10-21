@@ -5,7 +5,6 @@ import FormatCurrency from "./FormatCurrency";
 import useSWR, { useSWRConfig } from "swr";
 import { fetcher } from "../libs";
 import axios from "axios";
-import { Carts } from "../types";
 
 const Cart = () => {
   const { data: productsInCart, error: cartError } = useSWR(
@@ -20,8 +19,8 @@ const Cart = () => {
 
   let subTotal = 0;
 
-  const handleDeleteProductInCart = (productInCartId: Carts) => {
-    const deleteCartById = async (productInCartId: Carts) => {
+  const handleDeleteProductInCart = (productInCartId: any) => {
+    const deleteCartById = async (productInCartId: any) => {
       try {
         const response = await axios.delete(
           `${process.env.NEXT_PUBLIC_BACKEND_URL}/carts/${productInCartId}`
