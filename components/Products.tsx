@@ -11,33 +11,20 @@ import { useRouter } from "next/router";
 export const Products = () => {
   const router = useRouter();
   const { category } = router.query;
-  
+
   const [limit, setLimit] = useState(4);
 
-  const { data, error: productsError } = useSWR(
-    `/api/products?limit=${limit}`,
+  const { data, error } = useSWR(
+    category
+      ? `/api/products?limit=${limit}&category=${category}`
+      : `/api/products?limit=${limit}`,
     fetcher
   );
-
-  let buttonLoadMore;
-
-  if (limit < data?.count) {
-    buttonLoadMore = (
-      <button
-        onClick={() => setLimit(limit + 4)}
-        className="bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded"
-      >
-        Load More
-      </button>
-    );
-  } else {
-    buttonLoadMore = null;
-  }
 
   return (
     <div className="mt-10 mb-20">
       <div className="grid grid-cols-1 gap-5 mt-10 md:grid-cols-2 lg:grid-cols-4 ">
-        {productsError && <p>Failed to load products</p>}
+        {error && <p>Failed to load products</p>}
         {!data?.products && <p>Loading all products...</p>}
         {data?.products?.length > 0 &&
           data?.products.map((data: any) => {
@@ -72,7 +59,16 @@ export const Products = () => {
             );
           })}
       </div>
-      <div className="grid grid-cols-1 m-10">{buttonLoadMore}</div>
+      <div className="grid grid-cols-1 m-10">
+        {limit < data?.count && (
+          <button
+            onClick={() => setLimit(limit + 4)}
+            className="bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded"
+          >
+            Load More
+          </button>
+        )}
+      </div>
     </div>
   );
 };
