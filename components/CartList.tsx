@@ -6,6 +6,7 @@ import useSWR, { useSWRConfig } from "swr";
 import { fetcher } from "../libs";
 import axios from "axios";
 import { Carts } from "../types/carts";
+import { Product } from "../types/product";
 
 const Cart = () => {
   const { data: productsInCart, error: cartError } = useSWR(
@@ -28,7 +29,7 @@ const Cart = () => {
         );
         const data = response.data;
         const newProductsInCart = productsInCart.filter(
-          (productInCart: Carts) => {
+          (productInCart: Product) => {
             return productInCart._id !== data._id;
           }
         );
@@ -89,7 +90,9 @@ const Cart = () => {
               </div>
               <div className="basis-1/6">
                 <button
-                  onClick={() => handleDeleteProductInCart(productInCart._id)}
+                  onClick={() =>
+                    handleDeleteProductInCart(productInCart.products[0]._id)
+                  }
                   className="bg-transparent hover:bg-orange-600 text-sky-500 font-semibold shadow-md hover:text-white py-2 px-4 border border-stone-700 hover:border-transparent rounded"
                 >
                   Delete
