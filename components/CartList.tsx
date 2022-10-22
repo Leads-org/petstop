@@ -5,6 +5,9 @@ import FormatCurrency from "./FormatCurrency";
 import useSWR, { useSWRConfig } from "swr";
 import { fetcher } from "../libs";
 import axios from "axios";
+import { Carts } from "../types/carts";
+import { Product } from "../types/product";
+import Link from "next/link";
 
 const Cart = () => {
   const { data: productsInCart, error: cartError } = useSWR(
@@ -27,7 +30,7 @@ const Cart = () => {
         );
         const data = response.data;
         const newProductsInCart = productsInCart.filter(
-          (productInCart: any) => {
+          (productInCart: Product) => {
             return productInCart._id !== data._id;
           }
         );
@@ -55,7 +58,7 @@ const Cart = () => {
           <div className="basis-1/6">Action</div>
         </div>
         {/* Item cart */}
-        {productsInCart.map((productInCart: any) => {
+        {productsInCart.map((productInCart: Carts) => {
           // const totalPrice =
           //   productInCart.products[0].price * productInCart.quantity;
 
@@ -67,20 +70,23 @@ const Cart = () => {
                 <div className="grid grid-cols-2">
                   <Image
                     alt="blog photo"
-                    src={productInCart.products[0].image[0].url}
+                    src={productInCart.products[0]?.image[0].url}
                     width={100}
                     height={200}
                     className="max-h-40 object-cover"
                   />
                   <div>
-                    <h1 className="text-xl font-bold">
-                      {productInCart.products[0].name}
+                    <h1 className="text-md font-bold">
+                      {productInCart.products[0]?.name}
                     </h1>
+                    <Link href={`/products/${productInCart.products[0]?._id}`}>
+                      <a className="text-sky-500">See Details</a>
+                    </Link>
                   </div>
                 </div>
               </div>
               <div className="basis-1/6">
-                <FormatCurrency price={productInCart.products[0].price} />
+                <FormatCurrency price={productInCart.products[0]?.price} />
               </div>
               <div className="basis-1/6">{productInCart.quantity}</div>
               <div className="basis-1/6">

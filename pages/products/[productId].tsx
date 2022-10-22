@@ -20,46 +20,39 @@ const ProductsDetail = () => {
     fetcher
   );
 
-  const clickToCart = async () => {
-    let cartStorage = JSON.parse(localStorage.getItem("cartStorage") || "[]");
-
-    let id;
-    cartStorage.length != 0
-      ? cartStorage.findLast((item: { id: any }) => (id = item.id))
-      : (id = 0);
-
-    var item = {
-      products: productId,
-      qty: 1,
-    };
-
-    //add item data to array
-    cartStorage.push(item);
-    localStorage.setItem("cartStorage", JSON.stringify(cartStorage));
-
+  const clickToCart = async (productPrice: number) => {
     try {
       const cart = await axios.get(
         `${process.env.NEXT_PUBLIC_BACKEND_URL}/carts?$lookup=*&products[0]=${productId}`
       );
 
+      const priceProduct = await axios.get(
+        `${process.env.NEXT_PUBLIC_BACKEND_URL}/carts?$lookup=*&products[0]=${productId}`
+      );
+
       if (cart.data.length > 0) {
-        const response = await axios.patch(
-          `${process.env.NEXT_PUBLIC_BACKEND_URL}/carts/${cart.data[0]._id}`,
-          {
-            quantity: cart.data[0].quantity + 1,
-            // TODO: totalPrice calculated here
-          }
-        );
+        const response = await axios
+          .patch(
+            `${process.env.NEXT_PUBLIC_BACKEND_URL}/carts/${cart.data[0]._id}`,
+            {
+              quantity: cart.data[0].quantity + 1,
+              totalPrice: productPrice * (cart.data[0].quantity + 1),
+            }
+          )
+          .then(() => {
+            router.push("/carts");
+          });
       } else {
-        const response = await axios.post(
-          `${process.env.NEXT_PUBLIC_BACKEND_URL}/carts`,
-          {
+        const response = await axios
+          .post(`${process.env.NEXT_PUBLIC_BACKEND_URL}/carts`, {
             storageId: "",
-            totalPrice: 0, // TODO: totalPrice calculated here
+            totalPrice: productPrice, // TODO: totalPrice calculated here
             quantity: 1,
             products: [productId],
-          }
-        );
+          })
+          .then(() => {
+            router.push("/carts");
+          });
       }
     } catch (error) {
       console.error(error);
@@ -103,7 +96,7 @@ const ProductsDetail = () => {
                 </p>
                 <div className="flex item-center justify-between mt-10">
                   <button
-                    onClick={() => clickToCart()}
+                    onClick={() => clickToCart(product.price)}
                     className="bg-transparent hover:bg-orange-600 text-sky-500 font-semibold shadow-md hover:text-white py-2 px-4 border border-stone-700 hover:border-transparent rounded"
                   >
                     Add to Cart - <FormatCurrency price={product.price} />
