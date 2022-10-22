@@ -1,6 +1,5 @@
 import React from "react";
-
-type Props = {};
+import Link from "next/link";
 
 const categories = [
   {
@@ -17,20 +16,22 @@ const categories = [
   },
 ];
 
-function NavCategory({}: Props) {
+export const NavCategory = () => {
   return (
     <div className="flex items-center justify-center m-8 ">
       <div
         className="rounded-2xl inline-flex bg-[#CFCFCF] shadow-md hover:shadow-lg focus:shadow-lg"
         role="group"
       >
-        <a
-          href="#"
-          aria-current="page"
-          className="rounded-2xl inline-block px-10 py-5 leading-tight hover:bg-[#079EF5] hover:text-white  focus:bg-[#079EF5] focus:outline-none focus:ring-0 active:bg-[#079EF5] transition duration-150 ease-in-out "
-        >
-          All Products
-        </a>
+        <Link href={`/products`}>
+          <a
+            aria-current="page"
+            className="rounded-2xl inline-block px-10 py-5 leading-tight hover:bg-[#079EF5] hover:text-white  focus:bg-[#079EF5] focus:outline-none focus:ring-0 active:bg-[#079EF5] transition duration-150 ease-in-out "
+          >
+            All Products
+          </a>
+        </Link>
+
         <a
           href="#"
           className="rounded-2xl inline-block px-10 py-5 leading-tight hover:bg-[#079EF5] hover:text-white  focus:bg-[#079EF5] focus:outline-none focus:ring-0 active:bg-[#079EF5] transition duration-150 ease-in-out "
@@ -39,18 +40,19 @@ function NavCategory({}: Props) {
         </a>
         {categories.map((category) => {
           return (
-            <a
-              href="#"
+            <Link
               key={category.id}
-              className="rounded-2xl inline-block px-10 py-5 leading-tight hover:bg-[#079EF5] hover:text-white focus:bg-[#079EF5] focus:outline-none focus:ring-0 active:bg-[#079EF5] transition duration-150 ease-in-out active"
+              href={`/products?category=${category.name}`}
             >
-              {category.name}
-            </a>
+              <a className="rounded-2xl inline-block px-10 py-5 leading-tight hover:bg-[#079EF5] hover:text-white focus:bg-[#079EF5] focus:outline-none focus:ring-0 active:bg-[#079EF5] transition duration-150 ease-in-out active">
+                {category.name}
+              </a>
+            </Link>
           );
         })}
       </div>
     </div>
   );
-}
+};
 
 export default NavCategory;

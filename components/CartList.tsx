@@ -8,6 +8,7 @@ import axios from "axios";
 import { Carts } from "../types/carts";
 import { Product } from "../types/product";
 import Link from "next/link";
+import { FaMinusCircle, FaPlusCircle } from "react-icons/fa";
 
 const Cart = () => {
   const { data: productsInCart, error: cartError } = useSWR(
@@ -19,6 +20,20 @@ const Cart = () => {
 
   if (cartError) return <div>Failed to load product by id: </div>;
   if (!productsInCart) return <div>Loading product details...</div>;
+
+  if (productsInCart?.length < 1)
+    return (
+      <div className="grid grid-flow-row auto-rows-max text-2xl justify-center pt-14">
+        <h1>Your shopping cart is empty</h1>
+        <Image
+          alt="Logo"
+          src={"/cart-empty.svg"}
+          width={120}
+          height={120}
+          className=" "
+        />
+      </div>
+    );
 
   let subTotal = 0;
 
@@ -41,6 +56,34 @@ const Cart = () => {
     };
 
     deleteCartById(productInCartId);
+  };
+
+  const handleIncreaseProduct = async (productInCart: any) => {
+    try {
+      const response = await axios.patch(
+        `${process.env.NEXT_PUBLIC_BACKEND_URL}/carts/${productInCart._id}`,
+        {
+          quantity: productInCart.quantity + 1,
+        }
+      );
+      mutate("/api/carts");
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
+  const handleDeacreaseProduct = async (productInCart: any) => {
+    try {
+      const response = await axios.patch(
+        `${process.env.NEXT_PUBLIC_BACKEND_URL}/carts/${productInCart._id}`,
+        {
+          quantity: productInCart.quantity - 1,
+        }
+      );
+      mutate("/api/carts");
+    } catch (error) {
+      console.error(error);
+    }
   };
 
   return (
@@ -88,7 +131,18 @@ const Cart = () => {
               <div className="basis-1/6">
                 <FormatCurrency price={productInCart.products[0]?.price} />
               </div>
-              <div className="basis-1/6">{productInCart.quantity}</div>
+
+              <div className="basis-1/6 flex gap-2">
+                <FaMinusCircle
+                  onClick={() => handleDeacreaseProduct(productInCart)}
+                  className=""
+                />
+                {productInCart.quantity}
+                <FaPlusCircle
+                  onClick={() => handleIncreaseProduct(productInCart)}
+                  className=""
+                />
+              </div>
               <div className="basis-1/6">
                 <FormatCurrency price={productInCart.totalPrice} />
               </div>

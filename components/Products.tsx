@@ -6,12 +6,16 @@ import Link from "next/link";
 
 import Ratings from "./Ratings";
 import FormatCurrency from "./FormatCurrency";
+import { useRouter } from "next/router";
 
 export const Products = () => {
-  const [limit, setLimit] = useState(4);
+  const router = useRouter();
+  const { category } = router.query;
+
 
   const { data, error: productsError } = useSWR(
     `/api/products?limit=${limit}`,
+
     fetcher
   );
 
