@@ -21,22 +21,6 @@ const ProductsDetail = () => {
   );
 
   const clickToCart = async (productPrice: number) => {
-    // let cartStorage = JSON.parse(localStorage.getItem("cartStorage") || "[]");
-
-    // let id;
-    // cartStorage.length != 0
-    //   ? cartStorage.findLast((item: { id: any }) => (id = item.id))
-    //   : (id = 0);
-
-    // var item = {
-    //   products: productId,
-    //   qty: 1,
-    // };
-
-    //add item data to array
-    // cartStorage.push(item);
-    // localStorage.setItem("cartStorage", JSON.stringify(cartStorage));
-
     try {
       const cart = await axios.get(
         `${process.env.NEXT_PUBLIC_BACKEND_URL}/carts?$lookup=*&products[0]=${productId}`
@@ -47,23 +31,28 @@ const ProductsDetail = () => {
       );
 
       if (cart.data.length > 0) {
-        const response = await axios.patch(
-          `${process.env.NEXT_PUBLIC_BACKEND_URL}/carts/${cart.data[0]._id}`,
-          {
-            quantity: cart.data[0].quantity + 1,
-            totalPrice: productPrice * (cart.data[0].quantity + 1),
-          }
-        );
+        const response = await axios
+          .patch(
+            `${process.env.NEXT_PUBLIC_BACKEND_URL}/carts/${cart.data[0]._id}`,
+            {
+              quantity: cart.data[0].quantity + 1,
+              totalPrice: productPrice * (cart.data[0].quantity + 1),
+            }
+          )
+          .then(() => {
+            router.push("/carts");
+          });
       } else {
-        const response = await axios.post(
-          `${process.env.NEXT_PUBLIC_BACKEND_URL}/carts`,
-          {
+        const response = await axios
+          .post(`${process.env.NEXT_PUBLIC_BACKEND_URL}/carts`, {
             storageId: "",
             totalPrice: productPrice, // TODO: totalPrice calculated here
             quantity: 1,
             products: [productId],
-          }
-        );
+          })
+          .then(() => {
+            router.push("/carts");
+          });
       }
     } catch (error) {
       console.error(error);

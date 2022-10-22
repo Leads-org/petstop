@@ -22,8 +22,8 @@ const Cart = () => {
 
   let subTotal = 0;
 
-  const handleDeleteProductInCart = (productInCartId: Carts) => {
-    const deleteCartById = async (productInCartId: Carts) => {
+  const handleDeleteProductInCart = (productInCartId: string) => {
+    const deleteCartById = async (productInCartId: string) => {
       try {
         const response = await axios.delete(
           `${process.env.NEXT_PUBLIC_BACKEND_URL}/carts/${productInCartId}`
@@ -94,9 +94,7 @@ const Cart = () => {
               </div>
               <div className="basis-1/6">
                 <button
-                  onClick={() =>
-                    handleDeleteProductInCart(productInCart.products[0]?._id)
-                  }
+                  onClick={() => handleDeleteProductInCart(productInCart._id)}
                   className="bg-transparent hover:bg-orange-600 text-sky-500 font-semibold shadow-md hover:text-white py-2 px-4 border border-stone-700 hover:border-transparent rounded"
                 >
                   Delete
