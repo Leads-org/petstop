@@ -44,15 +44,12 @@ const Cart = () => {
     deleteCartById(productInCartId);
   };
 
-  const handleIncreaseProduct = async (productInCartId: string) => {
+  const handleIncreaseProduct = async (productInCart: any) => {
     try {
-      const cart = await axios.get(
-        `${process.env.NEXT_PUBLIC_BACKEND_URL}/carts?$lookup=*&products[0]=${productInCartId}`
-      );
       const response = await axios.patch(
-        `${process.env.NEXT_PUBLIC_BACKEND_URL}/carts/${cart.data[0]._id}`,
+        `${process.env.NEXT_PUBLIC_BACKEND_URL}/carts/${productInCart._id}`,
         {
-          quantity: cart.data[0].quantity + 1,
+          quantity: productInCart.quantity + 1,
         }
       );
       mutate("/api/carts");
@@ -60,15 +57,13 @@ const Cart = () => {
       console.error(error);
     }
   };
-  const handleDeacreaseProduct = async (productInCartId: string) => {
+
+  const handleDeacreaseProduct = async (productInCart: any) => {
     try {
-      const cart = await axios.get(
-        `${process.env.NEXT_PUBLIC_BACKEND_URL}/carts?$lookup=*&products[0]=${productInCartId}`
-      );
       const response = await axios.patch(
-        `${process.env.NEXT_PUBLIC_BACKEND_URL}/carts/${cart.data[0]._id}`,
+        `${process.env.NEXT_PUBLIC_BACKEND_URL}/carts/${productInCart._id}`,
         {
-          quantity: cart.data[0].quantity - 1,
+          quantity: productInCart.quantity - 1,
         }
       );
       mutate("/api/carts");
@@ -125,16 +120,12 @@ const Cart = () => {
 
               <div className="basis-1/6 flex gap-2">
                 <FaMinusCircle
-                  onClick={() =>
-                    handleDeacreaseProduct(productInCart.products[0]?._id)
-                  }
+                  onClick={() => handleDeacreaseProduct(productInCart)}
                   className=""
                 />
                 {productInCart.quantity}
                 <FaPlusCircle
-                  onClick={() =>
-                    handleIncreaseProduct(productInCart.products[0]?._id)
-                  }
+                  onClick={() => handleIncreaseProduct(productInCart)}
                   className=""
                 />
               </div>
