@@ -19,7 +19,7 @@ export default async function handler(
   const responseCount = await fetch(
     `${process.env.BACKEND_URL}/products/count`
   );
-  const productsCount = await responseCount.json();
+  const count = await responseCount.json();
 
   /**
    * Get all products
@@ -31,7 +31,7 @@ export default async function handler(
     const products = await response.json();
     res.status(200).json({
       products,
-      count: productsCount,
+      count: count,
     });
   } else {
     const response = await fetch(
@@ -40,7 +40,7 @@ export default async function handler(
     const products = await response.json();
     res.status(200).json({
       products,
-      count: productsCount,
+      count: count,
     });
   }
 }
