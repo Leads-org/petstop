@@ -5,6 +5,7 @@ import FormatCurrency from "./FormatCurrency";
 import useSWR, { useSWRConfig } from "swr";
 import { fetcher } from "../libs";
 import axios from "axios";
+import { Carts } from "../types/carts";
 
 const Cart = () => {
   const { data: productsInCart, error: cartError } = useSWR(
@@ -19,15 +20,15 @@ const Cart = () => {
 
   let subTotal = 0;
 
-  const handleDeleteProductInCart = (productInCartId: any) => {
-    const deleteCartById = async (productInCartId: any) => {
+  const handleDeleteProductInCart = (productInCartId: Carts) => {
+    const deleteCartById = async (productInCartId: Carts) => {
       try {
         const response = await axios.delete(
           `${process.env.NEXT_PUBLIC_BACKEND_URL}/carts/${productInCartId}`
         );
         const data = response.data;
         const newProductsInCart = productsInCart.filter(
-          (productInCart: any) => {
+          (productInCart: Carts) => {
             return productInCart._id !== data._id;
           }
         );
