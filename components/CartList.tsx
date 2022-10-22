@@ -73,7 +73,7 @@ const Cart = () => {
                     src={productInCart.products[0]?.image[0].url}
                     width={100}
                     height={200}
-                    className="max-h-40 object-cover"
+                    className="max-h-40 object-contain"
                   />
                   <div>
                     <h1 className="text-md font-bold">
