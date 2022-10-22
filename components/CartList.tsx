@@ -8,6 +8,7 @@ import axios from "axios";
 import { Carts } from "../types/carts";
 import { Product } from "../types/product";
 import Link from "next/link";
+import { FaMinusCircle, FaPlusCircle } from "react-icons/fa";
 
 const Cart = () => {
   const { data: productsInCart, error: cartError } = useSWR(
@@ -41,6 +42,39 @@ const Cart = () => {
     };
 
     deleteCartById(productInCartId);
+  };
+
+  const handleIncreaseProduct = async (productInCartId: string) => {
+    try {
+      const cart = await axios.get(
+        `${process.env.NEXT_PUBLIC_BACKEND_URL}/carts?$lookup=*&products[0]=${productInCartId}`
+      );
+      const response = await axios.patch(
+        `${process.env.NEXT_PUBLIC_BACKEND_URL}/carts/${cart.data[0]._id}`,
+        {
+          quantity: cart.data[0].quantity + 1,
+        }
+      );
+      mutate("/api/carts");
+    } catch (error) {
+      console.error(error);
+    }
+  };
+  const handleDeacreaseProduct = async (productInCartId: string) => {
+    try {
+      const cart = await axios.get(
+        `${process.env.NEXT_PUBLIC_BACKEND_URL}/carts?$lookup=*&products[0]=${productInCartId}`
+      );
+      const response = await axios.patch(
+        `${process.env.NEXT_PUBLIC_BACKEND_URL}/carts/${cart.data[0]._id}`,
+        {
+          quantity: cart.data[0].quantity - 1,
+        }
+      );
+      mutate("/api/carts");
+    } catch (error) {
+      console.error(error);
+    }
   };
 
   return (
@@ -88,7 +122,22 @@ const Cart = () => {
               <div className="basis-1/6">
                 <FormatCurrency price={productInCart.products[0]?.price} />
               </div>
-              <div className="basis-1/6">{productInCart.quantity}</div>
+
+              <div className="basis-1/6 flex gap-2">
+                <FaMinusCircle
+                  onClick={() =>
+                    handleDeacreaseProduct(productInCart.products[0]?._id)
+                  }
+                  className=""
+                />
+                {productInCart.quantity}
+                <FaPlusCircle
+                  onClick={() =>
+                    handleIncreaseProduct(productInCart.products[0]?._id)
+                  }
+                  className=""
+                />
+              </div>
               <div className="basis-1/6">
                 <FormatCurrency price={productInCart.totalPrice} />
               </div>
