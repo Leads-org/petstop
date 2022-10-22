@@ -15,7 +15,7 @@ A simple ecommerce apps about pets
 - https://leads-petstop.netlify.app
 - https://petstop.mzoel.com
 - https://petstop.adefaisal.com
-- https://petstop.makmurmakmur.com
+- https://petstop.makmuremha.com
 - https://petstop.vektorlutfi.com
 
 ### Local Frontend/Client
