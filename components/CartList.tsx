@@ -64,7 +64,10 @@ const Cart = () => {
           subTotal = subTotal + productInCart.totalPrice;
 
           return (
-            <div key={productInCart._id} className="flex flex-row p-5">
+            <div
+              key={productInCart.products[0]._id}
+              className="flex flex-row p-5"
+            >
               <div className="basis-1/2">
                 <div className="grid grid-cols-2">
                   <Image
