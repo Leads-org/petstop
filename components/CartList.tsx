@@ -21,6 +21,20 @@ const Cart = () => {
   if (cartError) return <div>Failed to load product by id: </div>;
   if (!productsInCart) return <div>Loading product details...</div>;
 
+  if (productsInCart?.length < 1)
+    return (
+      <div className="grid grid-flow-row auto-rows-max text-2xl justify-center pt-14">
+        <h1>Your shopping cart is empty</h1>
+        <Image
+          alt="Logo"
+          src={"/cart-empty.svg"}
+          width={120}
+          height={120}
+          className=" "
+        />
+      </div>
+    );
+
   let subTotal = 0;
 
   const handleDeleteProductInCart = (productInCartId: string) => {
