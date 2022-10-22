@@ -38,7 +38,10 @@ export const NavCategory = () => {
         </a>
         {categories.map((category) => {
           return (
-            <Link key={category.id} href={`/products?filter=${category.name}`}>
+            <Link
+              key={category.id}
+              href={`/products?category=${category.name}`}
+            >
               <a className="rounded-2xl inline-block px-10 py-5 leading-tight hover:bg-[#079EF5] hover:text-white focus:bg-[#079EF5] focus:outline-none focus:ring-0 active:bg-[#079EF5] transition duration-150 ease-in-out active">
                 {category.name}
               </a>

@@ -10,12 +10,12 @@ import { useRouter } from "next/router";
 
 export const Products = () => {
   const router = useRouter();
-  const { filter } = router.query;
+  const { category } = router.query;
 
   const [limit, setLimit] = useState(4);
 
   const { data: products, error: productsError } = useSWR(
-    `/api/products?limit=${limit}`,
+    `/api/products?limit=${limit}&category=${category}`,
     fetcher
   );
 
