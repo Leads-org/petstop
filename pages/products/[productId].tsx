@@ -59,7 +59,7 @@ const ProductsDetail = () => {
           `${process.env.NEXT_PUBLIC_BACKEND_URL}/carts`,
           {
             storageId: "",
-            totalPrice: productPrice, // TODO: totalPrice calculated here
+            totalPrice: priceProduct.data[0].totalPrice + productPrice, // TODO: totalPrice calculated here
             quantity: 1,
             products: [productId],
           }
