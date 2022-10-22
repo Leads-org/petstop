@@ -4,10 +4,7 @@ import { Product } from "../../types/product";
 
 export default async function handler(
   req: NextApiRequest,
-  res: NextApiResponse<{
-    products: Product[];
-    count: number;
-  }>
+  res: NextApiResponse<Product>
 ) {
   const {
     query: { limit, category },
@@ -26,13 +23,5 @@ export default async function handler(
   );
   const products = await response.json();
 
-  const responseCount = await fetch(
-    `${process.env.BACKEND_URL}/products/count`
-  );
-  const productsCount = await responseCount.json();
-
-  res.status(200).json({
-    products,
-    count: productsCount,
-  });
+  res.status(200).json(products);
 }
