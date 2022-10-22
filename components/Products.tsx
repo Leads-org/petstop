@@ -15,7 +15,9 @@ export const Products = () => {
   const [limit, setLimit] = useState(4);
 
   const { data, error } = useSWR(
-    `/api/products?limit=${limit}&category=${category}`,
+    category
+      ? `/api/products?limit=${limit}&category=${category}`
+      : `/api/products?limit=${limit}`,
     fetcher
   );
 
