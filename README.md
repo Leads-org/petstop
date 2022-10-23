@@ -131,7 +131,7 @@ npm install
 Run server in development mode:
 
 ```sh
-npm run dev / yarn run dev
+npm run dev
 ```
 
 Build for production:
