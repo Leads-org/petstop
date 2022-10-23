@@ -22,17 +22,15 @@ A simple ecommerce apps about pets
 
 ### Design
 
-- Figma Mockup: https://www.figma.com/file/5Fg06BGKaD9idXYMK62xYp/Petshub?node-id=0%3A1
-- Figma Prototype: https://www.figma.com/proto/5Fg06BGKaD9idXYMK62xYp/Petshub?node-id=3%3A7&scaling=scale-down-width&page-id=0%3A1
+- Figma : https://www.figma.com/file/5Fg06BGKaD9idXYMK62xYp/Petshub?node-id=0%3A1
 
 ## Main Features
 
 - [x] See landing page
 - [x] List all products
 - [x] See product details
-- [ ] Customer profile
-- [ ] Shopping cart
-- [ ] Orders
+- [x] Shopping cart
+
 
 ## Team Members
 
@@ -63,11 +61,9 @@ A simple ecommerce apps about pets
   - REST API: Kontenbase
 - Data Fetching
   - REST API: `swr` / `axios`
-- UI Components
-  - Radix UI
 - Misc
   - Prettier
-  - ESLint
+
 
 ## API Specification
 
@@ -121,69 +117,7 @@ API URL: https://api.kontenbase.com/query/api/v1/bee912c9-4dfd-4be3-97cc-5b3a353
 ]
 ```
 
-### Customers
 
-| HTTP   | Endpoint         | Description       |
-| ------ | ---------------- | ----------------- |
-| GET    | `/customers`     | Get all customers |
-| POST   | `/customers`     | Create customers  |
-| PATCH  | `/customers/:id` | Edit customers    |
-| DELETE | `/customers/:id` | Delete customers  |
-
-```json
-[
-  {
-    "_id": "",
-    "email": "",
-    "fullname": "",
-    "billing_address": "",
-    "default_shipping_address": "",
-    "phone": ""
-  }
-]
-```
-
-### Orders
-
-| HTTP   | Endpoint      | Description    |
-| ------ | ------------- | -------------- |
-| GET    | `/orders`     | Get all orders |
-| POST   | `/orders`     | Create orders  |
-| PATCH  | `/orders/:id` | Edit orders    |
-| DELETE | `/orders/:id` | Delete orders  |
-
-```json
-[
-  {
-    "_id": "",
-    "customer_id": "",
-    "amount": "",
-    "shipping_address": "",
-    "order_date": "",
-    "order_status": ""
-  }
-]
-```
-
-### Order details
-
-| HTTP   | Endpoint             | Description           |
-| ------ | -------------------- | --------------------- |
-| GET    | `/order-details`     | Get all order-details |
-| POST   | `/order-details`     | Create order-details  |
-| PATCH  | `/order-details/:id` | Edit order-details    |
-| DELETE | `/order-details/:id` | Delete order-details  |
-
-```json
-[
-  {
-    "_id": "",
-    "order_id": "",
-    "product_id": "",
-    "price": "",
-    "quantity": ""
-  }
-]
 ```
 
 ## Development
