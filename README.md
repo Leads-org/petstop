@@ -30,6 +30,8 @@ A simple ecommerce apps about pets
 - [x] List all products
 - [x] See product details
 - [x] Shopping cart
+- [x] Search product
+- [x] Filter kategori
 
 
 ## Team Members
