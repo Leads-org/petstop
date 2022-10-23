@@ -119,6 +119,25 @@ API URL: https://api.kontenbase.com/query/api/v1/bee912c9-4dfd-4be3-97cc-5b3a353
 ]
 ```
 
+### Carts
+
+| HTTP   | Endpoint     | Description                   |
+| ------ | -------------| ----------------------------- |
+| GET    | `/carts`     | Get all data cart             |
+| POST   | `/carts`     | Add Item cart product         |
+| PATCH  | `/carts/:id` | Edit cart by id               |
+| DELETE | `/carts/:id` | Delete cart             by id |
+
+```json
+[
+  {
+    "_id": "",
+    "storageId": "",
+    "products": [],
+    "quantity": ""
+  }
+]
+```
 
 ```
 
