@@ -80,6 +80,8 @@ const Cart = () => {
         `${process.env.NEXT_PUBLIC_BACKEND_URL}/carts/${productInCart._id}`,
         {
           quantity: productInCart.quantity - 1,
+          totalPrice:
+            productInCart.products[0]?.price * (productInCart.quantity - 1),
         }
       );
       mutate("/api/carts");
