@@ -60,14 +60,12 @@ export const Products = () => {
           })}
       </div>
       <div className="grid grid-cols-1 m-10">
-        {limit < data?.count && (
-          <button
-            onClick={() => setLimit(limit + 4)}
-            className="bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded"
-          >
-            Load More
-          </button>
-        )}
+        <button
+          onClick={() => setLimit(limit + 4)}
+          className="bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded"
+        >
+          Load More
+        </button>
       </div>
     </div>
   );
